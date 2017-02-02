@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="CMN_TM_PARAMETER_DEF" directorySegmentName="seg_0" id="43DA779D-837C-5958-FED4-022E816C7612">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PARAMETER_CD" id="2A70CEC5-92ED-C95C-9417-0ADCDC39437D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:44 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CMN_TM_PARAMETER_DEF_PK" id="C2081D22-13C5-38AD-85F0-F412A58DEA8D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

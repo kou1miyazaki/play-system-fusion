@@ -1,0 +1,77 @@
+@(itemId: String, itemName: String, form: Form[forms.dbx.TableDataForm])
+
+@import play.i18n._
+@import consts.cmn.CommonConstraint
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@itemId match {
+	case "id"	=> {
+		@defining(form("id")) { idField =>
+			@if(session.get("pMode")=="insert") {
+				<input class="form-control input-sm" id="disabledInput" placeholder="@Messages.get("common.label.autocount")" disabled="" type="text" name="@idField.name" value="@idField.value">
+			} else {
+				<input class="form-control input-sm"   disabled="" type="text" id="@idField.id" name="@idField.name" value=""@idField.value"">
+			}
+			@if(idField.hasErrors) {
+				<span class="help-block">@idField.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "strCol01"	=> {
+		@defining(form("strCol01")) { strCol01Field =>
+			<input class="form-control input-sm" type="text" id="@strCol01Field.id" name="@strCol01Field.name" value="@strCol01Field.value" placeholder="@itemName">
+			@if(strCol01Field.hasErrors) {
+				<span class="help-block">@strCol01Field.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "strCol02"	=> {
+		@defining(form("strCol02")) { strCol02Field =>
+			<input class="form-control input-sm" type="text" id="@strCol02Field.id" name="@strCol02Field.name" value="@strCol02Field.value" placeholder="@itemName">
+			@if(strCol02Field.hasErrors) {
+				<span class="help-block">@strCol02Field.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "numCol01"	=> {
+		@defining(form("numCol01")) { numCol01Field =>
+			<input class="form-control input-sm" type="number" id="@numCol01Field.id" name="@numCol01Field.name" value="@numCol01Field.value" placeholder="@itemName">
+			@if(numCol01Field.hasErrors) {
+				<span class="help-block">@numCol01Field.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "numCol02"	=> {
+		@defining(form("numCol02")) { numCol02Field =>
+			<input class="form-control input-sm" type="number" id="@numCol02Field.id" name="@numCol02Field.name" value="@numCol02Field.value" placeholder="@itemName">
+			@if(numCol02Field.hasErrors) {
+				<span class="help-block">@numCol02Field.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "datCol01"	=> {
+		@defining(form("datCol01")) { datCol01Field =>
+			<input class="form-control input-sm" type="text" id="@datCol01Field.id" name="@datCol01Field.name" value="@datCol01Field.value" placeholder="@itemName">
+ 			<script>
+ 				$('#@datCol01Field.id').datepicker({format: "@CommonConstraint.C_DATE_PATTERN", language: "ja", autoclose: true,orientation: "top auto"});
+			</script>
+			@if(datCol01Field.hasErrors) {
+				<span class="help-block">@datCol01Field.errors.mkString(", ")</span>
+			}
+		}
+	}
+	case "datCol02"	=> {
+		@defining(form("datCol02")) { datCol02Field =>
+			<input class="form-control input-sm" type="text" id="@datCol02Field.id" name="@datCol02Field.name" value="@datCol02Field.value" placeholder="@itemName">
+ 			<script>
+ 				$('#@datCol02Field.id').datepicker({format: "@CommonConstraint.C_DATE_PATTERN", language: "ja", autoclose: true,orientation: "top auto"});
+			</script>
+			@if(datCol02Field.hasErrors) {
+				<span class="help-block">@datCol02Field.errors.mkString(", ")</span>
+			}
+		}																			
+	}
+	case _			=> {Not Found.}
+}

@@ -1,0 +1,61 @@
+@(title: String, header: String)(content: Html)
+
+@import views.html.cmn.incNavigator
+@import views.html.cmn.incTab
+@import views.html.cmn.incFooter
+@import views.html.cmn.incMessage
+@import consts.cmn.CommonConstraint
+@import utils.cmn.Session
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>@CommonConstraint.C_SYSTEM_NAME-@title</title>
+	<metaname="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="@routes.Assets.versioned("/sfusion/css/bootstrap.css")" media="screen">
+	<link rel="stylesheet" href="@routes.Assets.versioned("/sfusion/css/custom.min.css")">
+	<link rel="icon" href="@routes.Assets.versioned("/favicon.png")" sizes="32x32" />
+	<link rel="icon" href="@routes.Assets.versioned("/favicon.png")" sizes="192x192" />
+</head>
+
+<body>
+
+	<script src="@routes.Assets.versioned("/sfusion/js/jquery-1.10.2.min.js")"></script>
+	<script src="@routes.Assets.versioned("/sfusion/js/bootstrap.js")"></script>
+	<script src="@routes.Assets.versioned("/sfusion/js/custom.js")"></script>
+	<script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
+
+	<!-- ナビゲーター -->
+	<div class="container">
+		@incNavigator()
+	</div>
+
+<!--
+<div class="bs-component">
+<ul class="breadcrumb">
+  <li><a href="/">ホーム</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ul>
+</div>
+-->
+
+	<h6></h6>
+	<!-- メッセージ -->
+	@incMessage()
+
+	<!-- タブ -->
+	@if(!Session.get("session.tab").isEmpty()) {
+		@incTab(Session.get("session.tab"), Session.get("session.url"))
+	}
+
+	<!-- 本体 -->
+	@content
+
+	<!-- フッター -->
+	@incFooter()
+
+</body>
+</html>

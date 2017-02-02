@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
+  </head>
+  <body>
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="form-group">
+              <input type="text" class="form-control" id="date">
+          </div>
+        </fieldset>
+      </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.ja.js"></script>
+    <script>
+        $('#date').datepicker({
+            format: "yyyy/mm/dd",
+            language: "ja",
+            autoclose: true,
+            orientation: "top auto"
+        });
+    </script>
+  </body>
+</html>

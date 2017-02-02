@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="職位" directorySegmentName="seg_0" id="A8FB9115-09E4-3FE6-C2EB-2F6179DBD590">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="COMPANY_COMPANY_ID" id="33FD8260-B9BF-4BE6-379E-7725E2B9DF5D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="職位_ID" id="77E28EF6-740E-1D0C-8084-3C3E9A86F3D1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="職位_COMPANY_FK" id="82E51875-FB7C-0BE9-433F-AABB608F5111">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="職位_PK" id="A103E228-8591-958A-36F5-985DDD8CFCBF">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>BootstrapのPopoverの使い方デモ</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="portletBijinClock.scala.htmlportletBijinClock.scala.htmlportletBijinClock.scala.htmlhttp://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+</head>
+	<body>
+<div class="container">
+
+      <h2>Basic Carousel</h2>
+
+      <div id="carousel_sample" class="carousel slide" data-ride="carousel">
+
+        <!-- 中央に表示される丸いボタン -->
+        <ol class="carousel-indicators">
+
+          <!--
+            Carouselのid名を合わせる、スライダーの数だけ用意する
+            data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定
+           -->
+          <li data-target="#carousel_sample" data-slide-to="0" class=""></li>
+          <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
+          <li data-target="#carousel_sample" data-slide-to="2" class="active"></li>
+
+        </ol>
+
+        <!-- ここからCarouselの中身 -->
+        <div class="carousel-inner">
+
+          <!-- item = １ページ、activeを入れたところが最初に表示される -->
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==">
+          </div>
+          <div class="item active">
+            <img data-src="holder.js/900x500/auto/#555:#333/text:Third slide" alt="Third slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojMzMzO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+
+        </div>
+
+        <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
+        <a class="left carousel-control" href="#carousel_sample" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel_sample" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+
+      <h2>Basic Tooltips</h2>
+
+      <a id="tooltip-sample1" href="#" data-toggle="tooltip" title="" data-original-title="Tooltip!">
+        Tooltip!
+      </a>
+      <button id="tooltip-sample2" type="button" class="btn btn-default" data-toggle="tooltip" title="" data-original-title="Button!">
+        Button Tips
+      </button>
+
+
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+					<button type="button" id="hoge" class="btn btn-lg btn-danger" data-toggle="popover" title="ここにタイトル" data-content="ここに<span style='color:red'>説明文</style>">
+						クリックしてみて
+					</button>
+				</div>
+			</div><!-- /row -->
+			<br><br>
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+					シャッフルブログ&nbsp;<a href="javascript:void(0);" id="popover" data-toggle="popover" data-placement="top" title="シャッフルブログとは？"><span class="glyphicon glyphicon-question-sign"></span></a>
+				</div>
+			</div><!-- /row -->
+		</div><!-- /container -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				$('#hoge').popover({html: true});
+			});
+
+			$(function() {
+
+				// ポップオーバー文言
+				$('#popover').attr('data-content','元体育会系営業マンのpei(<a href="https://twitter.com/pei_babo">@pei_babo</a>)がシステム系のお固い話をライトに配信するブログです。');
+
+				// ポップオーバー
+				$("[data-toggle=popover]").popover({
+					trigger: 'hover', // click,hover,focus,manualを選択出来る
+					html: true,       // HTMLタグを含めるか
+				});
+
+			});
+		</script>
+	</body>
+</html>

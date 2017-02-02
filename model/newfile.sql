@@ -1,0 +1,336 @@
+SET SESSION FOREIGN_KEY_CHECKS=0;
+
+/* Drop Tables */
+
+DROP TABLE IF EXISTS cmn_tm_role;
+DROP TABLE IF EXISTS cmn_tt_account;
+DROP TABLE IF EXISTS cmn_tt_bookmark;
+DROP TABLE IF EXISTS cmn_tt_menu;
+DROP TABLE IF EXISTS cmn_tt_portal;
+DROP TABLE IF EXISTS cmn_tt_portlet_parameter;
+DROP TABLE IF EXISTS cmn_tt_portlet;
+DROP TABLE IF EXISTS dbx_tm_table_column;
+DROP TABLE IF EXISTS dbx_tt_table_data;
+DROP TABLE IF EXISTS dbx_tm_table;
+DROP TABLE IF EXISTS dbx_tm_table_display;
+DROP TABLE IF EXISTS sns_tt_message;
+DROP TABLE IF EXISTS sns_tt_timeline;
+DROP TABLE IF EXISTS sys_tt_log;
+
+
+
+
+/* Create Tables */
+
+CREATE TABLE cmn_tm_role
+(
+	ID int NOT NULL,
+	NAME varchar(200),
+	ROLE_DESC varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	aaa varchar(2000),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_account
+(
+	ID int NOT NULL,
+	ACCOUNT_ID varchar(10) NOT NULL,
+	PASSWORD varchar(10) NOT NULL,
+	ACCOUNT_NAME varchar(200) NOT NULL,
+	-- Eメールアドレス
+	EMAIL_ADDRESS varchar(200) COMMENT 'Eメールアドレス',
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_bookmark
+(
+	ID int NOT NULL,
+	PARENT_ID int,
+	BOOKMARK_TYPE varchar(10),
+	NAME varchar(200) NOT NULL,
+	-- URL
+	URL varchar(200) NOT NULL COMMENT 'URL',
+	IMAGE_ICON varchar(200),
+	BOOKMARK_DESC varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_menu
+(
+	ID int NOT NULL,
+	PARENT_ID int NOT NULL,
+	MENU_TYPE varchar(10) NOT NULL,
+	ACTION_TYPE varchar(10) NOT NULL,
+	NAME varchar(200),
+	-- URL
+	URL varchar(200) COMMENT 'URL',
+	IMAGE_ICON varchar(200),
+	MENU_DESC varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_portal
+(
+	ID int NOT NULL,
+	PORTAL_TYPE varchar(10) NOT NULL,
+	PORTAL_TAB_TYPE varchar(10) NOT NULL,
+	PORTAL_NAME varchar(100) NOT NULL,
+	-- URL
+	URL varchar(100) COMMENT 'URL',
+	IMAGE_ICON varchar(200),
+	LAYOUT_TYPE varchar(10) NOT NULL,
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT NOW(), SYSDATE() NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT NOW(), SYSDATE() NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_portlet
+(
+	ID int NOT NULL,
+	PORTAL_TYPE varchar(10) NOT NULL,
+	PORTAL_TAB_TYPE varchar(10) NOT NULL,
+	DISPLAY_TYPE varchar(10) NOT NULL,
+	PORTLET_NAME varchar(100) NOT NULL,
+	DISPLAY_NAME varchar(100),
+	ACTIVE_FLG boolean,
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE cmn_tt_portlet_parameter
+(
+	ID int NOT NULL,
+	PORTLET_ID int NOT NULL,
+	NAME varchar(100) NOT NULL,
+	VALUE varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE dbx_tm_table
+(
+	ID int NOT NULL,
+	TABLE_NAME varchar(10) NOT NULL,
+	DISPLAY_NAME varchar(100),
+	TABLE_DESC varchar(2000),
+	IMAGE_ICON varchar(200),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID),
+	UNIQUE (TABLE_NAME)
+);
+
+
+CREATE TABLE dbx_tm_table_column
+(
+	ID int NOT NULL,
+	TABLE_NAME varchar(10) NOT NULL,
+	TABLE_COL_NAME varchar(10) NOT NULL,
+	COLUMN_NAME varchar(10) NOT NULL,
+	DISPLAY_TYPE varchar(10) NOT NULL,
+	DISPLAY_NAME varchar(100),
+	COLUMN_TYPE varchar(10) NOT NULL,
+	COLUMN_LENGTH int,
+	LIST_FLG boolean,
+	LIST_ORDER int,
+	SEARCH_FLG boolean,
+	SEARCH_ORDER int,
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE dbx_tm_table_display
+(
+	ID int NOT NULL,
+	TABLE_NAME varchar(10) NOT NULL,
+	DISPLAY_TYPE varchar(10) NOT NULL,
+	DISPLAY_NAME varchar(100),
+	TABLE_DESC varchar(2000),
+	IMAGE_ICON varchar(200),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE dbx_tt_table_data
+(
+	ID int NOT NULL,
+	TABLE_NAME varchar(10) NOT NULL,
+	STR_COL01 varchar(1000),
+	STR_COL02 varchar(1000),
+	STR_COL03 varchar(1000),
+	STR_COL04 varchar(1000),
+	STR_COL05 varchar(1000),
+	STR_COL06 varchar(1000),
+	STR_COL07 varchar(1000),
+	STR_COL08 varchar(1000),
+	STR_COL09 varchar(1000),
+	STR_COL10 varchar(1000),
+	NUM_COL01 int,
+	NUM_COL02 int,
+	NUM_COL03 int,
+	NUM_COL04 int,
+	NUM_COL05 int,
+	NUM_COL06 int,
+	NUM_COL07 int,
+	NUM_COL08 int,
+	NUM_COL09 int,
+	NUM_COL10 int,
+	DAT_COL01 timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	DAT_COL02 timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	NOTE varchar(1000),
+	CREATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE sns_tt_message
+(
+	ID int NOT NULL,
+	ACCOUNT_ID varchar(10) NOT NULL,
+	MESSAGE varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE sns_tt_timeline
+(
+	ID int NOT NULL,
+	ACCOUNT_ID varchar(10) NOT NULL,
+	PARENT_ID int,
+	TITLE varchar(100),
+	MESSAGE varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+CREATE TABLE sys_tt_log
+(
+	ID int NOT NULL,
+	APP_TYPE varchar(10) NOT NULL,
+	UUID varchar(100) NOT NULL,
+	LOG_TITLE varchar(2000) NOT NULL,
+	LOG_BODY varchar(2000),
+	CLASS_NAME varchar(2000),
+	METHOD_NAME varchar(2000),
+	-- ノート
+	NOTE varchar(2000) COMMENT 'ノート',
+	CREATE_DATE timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	CREATE_USER varchar(10),
+	UPDATE_DATE timestamp DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	UPDATE_USER varchar(10),
+	PRIMARY KEY (ID)
+);
+
+
+
+/* Create Foreign Keys */
+
+ALTER TABLE cmn_tt_menu
+	ADD FOREIGN KEY (PARENT_ID)
+	REFERENCES cmn_tt_menu (ID)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE cmn_tt_portlet_parameter
+	ADD FOREIGN KEY (PORTLET_ID)
+	REFERENCES cmn_tt_portlet (ID)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE dbx_tm_table_column
+	ADD FOREIGN KEY (TABLE_NAME)
+	REFERENCES dbx_tm_table (TABLE_NAME)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE dbx_tt_table_data
+	ADD FOREIGN KEY (TABLE_NAME)
+	REFERENCES dbx_tm_table (TABLE_NAME)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+

@@ -1,0 +1,27 @@
+@()
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@if(flash.containsKey("success") || flash.containsKey("error")) {
+<div class="container">
+	<div class="row">
+		@if(flash.containsKey("success")) {
+			<div class="alert alert-dismissible alert-info">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				@flash.get("success")
+			</div>
+		}
+		@if(flash.containsKey("error")) {
+			<div class="alert alert-dismissible alert-danger">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				@flash.get("error")
+			</div>
+		}
+	</div>
+</div>
+}

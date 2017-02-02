@@ -1,0 +1,146 @@
+@(message: String, form: Form[forms.adm.AccountForm])
+
+@import play.i18n._
+@import utils.cmn.Session
+@import views.html.cmn.incDialog
+@import consts.cmn.CommonConstraint
+@import consts.adm.AccountConstraint
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getTitle(name: String, url: String, icon: String) = {
+	<a href="@url" class="">
+		<img src="@routes.Assets.versioned(icon)" width=32 height=32>&nbsp;@name
+	</a>
+}
+
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Bookmark Edit", AccountConstraint.C_LABEL_EDIT_NAME) {
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header navbar-brand">
+				@getTitle(AccountConstraint.C_LABEL_EDIT_NAME, AccountConstraint.C_URL_INDEX, AccountConstraint.C_ICON)
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<li>
+					<a class="btn btn-default btn-sm" href="@AccountConstraint.C_URL_LIST?searchWord=@Session.get(AccountConstraint.C_SESSION_SEARCH_WORD)">@Messages.get("common.button.list")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" href="javascript:document.forms['editForm'].submit();">@Messages.get("common.button.save")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-msgbox">@Messages.get("common.button.delete")</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-6">
+		<table class="table table-bordered table-condensed">
+		<form class="form-horizontal" name="editForm" role="form" action="@AccountConstraint.C_URL_SAVE" method="POST">
+		@defining(form("id")) { idField =>
+			<div class="form-group">
+				<tr>
+					<th class="col-md-3 active">
+						<label class="control-label" for="inputSmall">@Messages.get("account.id")</label>
+					</th>
+					<td class="col-md-9">
+						@if(session.get("pMode")=="insert") {
+							<input class="form-control input-sm" id="disabledInput" placeholder="@Messages.get("common.label.autocount")" disabled="" type="text" name="@idField.name" value="@idField.value">
+						} else {
+							<input class="form-control input-sm"  placeholder="@idField.value" disabled="" type="text" id="@idField.id" name="@idField.name" value=""@idField.value"">
+						}
+					</td>
+				</tr>
+			</div>
+		}
+		@defining(form("accountId")) { accountIdField =>
+			<div class="form-group">
+				<tr>
+					<th class="col-md-3 active">
+						<label class="control-label" for="inputSmall">@Messages.get("account.accountId")</label>
+					</th>
+					<td class="col-md-9">
+						<input class="form-control input-sm" id="inputSmall" type="text" id="@accountIdField.id" name="@accountIdField.name" value="@accountIdField.value" placeholder="@Messages.get("account.accountId")" >
+						@if(accountIdField.hasErrors) {
+              				<span class="help-block">@accountIdField.errors.mkString(", ")</span>
+              			}
+					</td>
+				</tr>
+			</div>
+		}
+		@defining(form("password")) { passwordField =>
+			<div class="form-group">
+				<tr>
+					<th class="col-md-3 active">
+						<label class="control-label" for="inputSmall">@Messages.get("account.password")</label>
+					</th>
+					<td class="col-md-9">
+						<input class="form-control input-sm" id="inputSmall" type="text" id="@passwordField.id" name="@passwordField.name" value="@passwordField.value" placeholder="@Messages.get("account.password")">
+						@if(passwordField.hasErrors) {
+              				<span class="help-block">@passwordField.errors.mkString(", ")</span>
+              			}
+					</td>
+				</tr>
+			</div>
+		}
+		@defining(form("accountName")) { accountNameField =>
+			<div class="form-group">
+				<tr>
+					<th class="col-md-3 active">
+						<label class="control-label" for="inputSmall">@Messages.get("account.accountName")</label>
+					</th>
+					<td class="col-md-9">
+						<input class="form-control input-sm" id="inputSmall" type="text" id="@accountNameField.id" name="@accountNameField.name" value="@accountNameField.value" placeholder="@Messages.get("account.accountName")">
+						@if(accountNameField.hasErrors) {
+              				<span class="help-block">@accountNameField.errors.mkString(", ")</span>
+              			}
+					</td>
+				</tr>
+			</div>
+		}
+		@defining(form("emailAddress")) { emailAddressField =>
+			<div class="form-group">
+				<tr>
+					<th class="col-md-3 active">
+						<label class="control-label" for="inputSmall">@Messages.get("account.emailAddress")</label>
+					</th>
+					<td class="col-md-9">
+						<input class="form-control input-sm" id="inputSmall" type="text" id="@emailAddressField.id" name="@emailAddressField.name" value="@emailAddressField.value" placeholder="@Messages.get("account.emailAddress")">
+						@if(emailAddressField.hasErrors) {
+              				<span class="help-block">@emailAddressField.errors.mkString(", ")</span>
+              			}
+					</td>
+				</tr>
+			</div>
+		}
+		</table>
+	</div>
+	<div class="col-lg-6">
+		<table class="table table-bordered table-condensed">
+		</form>
+		</table>
+	</div>
+</div>
+
+<form name="deleteForm" action="@AccountConstraint.C_URL_DELETE/@Session.get(CommonConstraint.C_SESSION_ID)" method="post">
+</form>
+
+@*****************************
+* ダイアログ定義             *
+*****************************@
+@incDialog("modal-msgbox",
+	Messages.get("common.dialog.title"),
+	Messages.get("common.dialog.delete"),
+	"document.forms['deleteForm'].submit();"
+);
+}

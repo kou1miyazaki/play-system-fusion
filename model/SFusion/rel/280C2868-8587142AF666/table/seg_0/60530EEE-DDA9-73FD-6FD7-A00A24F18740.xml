@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="60530EEE-DDA9-73FD-6FD7-A00A24F18740" name="CMN_TT_MENU">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>908C4D0C-1EDF-6CE5-0F97-FBE344066543</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MENU_CD" id="78FC98F1-7B16-1C88-277A-0F7408552B77">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<comment>メニューコード</comment>
+<commentInRDBMS>メニューコード</commentInRDBMS>
+<generatorID>C64507CA-E3F5-5B89-AFDF-2AD809CFA84C</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MENU_NAME" id="13EA7416-68B8-D81A-846A-F637685D1ADF">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<comment>メニュー名称</comment>
+<commentInRDBMS>メニュー名称</commentInRDBMS>
+<generatorID>B8691B8A-26C0-7D60-E1DE-B9109DCEDCA7</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<domain>FF54AFE0-5E5B-D0F9-8AFA-8F7FE0EB35FF</domain>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MENU_TYPE" id="8432FC1E-A69F-7750-9609-F5F4DC164D56">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>62E1F7BC-F262-CA8D-9952-1DA63ADDFD0D</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<domain>AD5FA2F0-7F5E-737C-EEFD-B38FC6A43E45</domain>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CMN_TT_MENU_MENU_CD" id="04B88835-0594-194C-64B1-79A14DB426E5">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<comment>メニューコード</comment>
+<generatorID>E447F35B-989B-DC8A-58D5-A7BC9A630005</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="82CCCB85-767F-1883-125A-0376573269BD" referredColumn="78FC98F1-7B16-1C88-277A-0F7408552B77"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3EB797D0-622A-440A-C739-28A65FCBAFA1" name="CMN_TT_MENU_PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>A384A9CA-2ECF-3258-1102-792B28BAED9D</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78FC98F1-7B16-1C88-277A-0F7408552B77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3B29A61A-6E61-DEC9-D668-2F6C3B74E5DA" name="CMN_TT_MENU__IDX">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>257CFD44-2773-A72C-F027-8C29719C2B37</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="04B88835-0594-194C-64B1-79A14DB426E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7B548892-0439-6404-62BB-C56F9CBC7A15" name="CMN_TT_MENU_CMN_TT_MENU_FK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<generatorID>257CFD44-2773-A72C-F027-8C29719C2B37</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04B88835-0594-194C-64B1-79A14DB426E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

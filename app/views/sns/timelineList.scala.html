@@ -1,0 +1,60 @@
+@(message: String, result: List[models.sns.TimelineModel])
+
+@import java.util.Date
+@import play.i18n._
+@import utils.cmn.Session
+@import models.sns.TimelineModel
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Session Index", Messages.get("bookmark.list")) {
+
+<div class="container">	<div class="bs-component">
+	<h5></h5>
+	<div class="row">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#home" data-toggle="tab">タイムライン</a></li>
+			<li><a href="#whois"" data-toggle="tab">フォロー</a></li>
+			<li><a href="#whois"" data-toggle="tab">フォローワ</a></li>
+			<li><a href="#whois"" data-toggle="tab">コミュニティ</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="row">
+				<div class="bs-component">
+				<ul class="breadcrumb">
+					<li>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control input-sm" placeholder="Search" size="35">
+						</div>
+						<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+					</form>
+	  			</li>
+	  			</ul>
+				</div>
+			</div>
+			@for(model <- result) {
+			<div class="list-group">
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">List group item heading</h4>
+					<p class="list-group-item-text">@model.message</p>
+					@for(children <- TimelineModel.getListChildren(model.id)) {
+						<blockquote>
+							<p>@children.message</p>
+							<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+						</blockquote>
+					}
+				</div>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+}

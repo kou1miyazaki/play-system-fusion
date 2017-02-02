@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A8FB9115-09E4-3FE6-C2EB-2F6179DBD590" name="職位">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>638B8017-2F4C-06C2-F504-050A0A385FE6</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="職位_ID" id="77E28EF6-740E-1D0C-8084-3C3E9A86F3D1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="COMPANY_COMPANY_ID" id="33FD8260-B9BF-4BE6-379E-7725E2B9DF5D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2817CCEA-C52D-4039-7593-550AB4D93F59" referredColumn="94179741-14F8-FD24-9926-4C63E6CAC471"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A103E228-8591-958A-36F5-985DDD8CFCBF" name="職位_PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="77E28EF6-740E-1D0C-8084-3C3E9A86F3D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="82E51875-FB7C-0BE9-433F-AABB608F5111" name="職位_COMPANY_FK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>46467306-9936-FDD9-8BF1-E6673BD11096</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33FD8260-B9BF-4BE6-379E-7725E2B9DF5D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

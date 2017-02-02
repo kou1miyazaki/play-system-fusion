@@ -1,0 +1,90 @@
+@(message: String, result: List[models.adm.BookmarkModel])
+
+@import consts.cmn.CommonConstraint
+@import models.adm.BookmarkModel
+@import utils.cmn.Session
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@retSelect(pId: Integer) = {
+  @if(pId.equals(Session.get("iframe.id").toInt)) {active} else {}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Bookmart Tab", "ブックマークタブ") {
+<style type='text/css'>
+.iframe-css {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 2px;
+	height: 0;
+	overflow: hidden;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.iframe-css iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+<script language="JavaScript"><!--
+	function replaceUrl() {
+		document.getElementById("iFrame").src = document.getElementById("url").value;
+	}
+// --></script>
+
+<div class="container">
+	<h5></h5>
+	 <div class="col-lg-9">
+		<ul class="nav nav-tabs">
+			@for(bookmark <- result) {
+				@if(BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType).size() == 0) {
+					<li class="@retSelect(bookmark.id)">
+						<a href="/bookmark/tab/@Session.get("iframe.bookmarktype")/@bookmark.id">
+							<img src="@bookmark.imageIcon" width=@CommonConstraint.C_SIZE_ICON_XS height=@CommonConstraint.C_SIZE_ICON_XS />@bookmark.name
+						</a>
+					</li>
+				}  else {
+					<li class="dropdown @retSelect(bookmark.id)">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<img src="@bookmark.imageIcon" width=@CommonConstraint.C_SIZE_ICON_XS height=@CommonConstraint.C_SIZE_ICON_XS />@bookmark.name<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						@for(children <- BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType)) {
+							<li class="@retSelect(children.id)">
+								<a href="/bookmark/tab/@Session.get("iframe.bookmarktype")/@children.id">
+								<img src="@children.imageIcon" width=16 height=16 />@children.name
+								</a>
+							</li>
+						}
+						</ul>
+					</li>
+				}
+			}
+		</ul>
+	</div>
+	<div class="col-lg-3">
+		<form class="navbar-form navbar-right" role="search" name="searchForm" action="">
+			<div class="form-group">
+				<input type="text" placeholder="Search" id="url" class="form-control input-sm" value="@Session.get("iframe.url")">
+				<a href="javascript:replaceUrl();">
+					<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+				</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="iframe-css">
+	<iframe id="iFrame" src="@Session.get("iframe.url")" height="100%" width="100%" allowfullscreen="" frameborder="" ></iframe>
+</div>
+
+}

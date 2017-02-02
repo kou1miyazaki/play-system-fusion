@@ -1,0 +1,28 @@
+@(id: String, title: String, message: String, onClick: String)
+
+@import play.i18n._
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="modal" id="@id" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="modal-label">@title</h4>
+			</div>
+			<div class="modal-body">@message</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">@Messages.get("common.dialog.cancel")</button>
+				<button type="button" class="btn btn-primary" onclick="@onClick">@Messages.get("common.dialog.ok")</button>
+			</div>
+		</div>
+	</div>
+</div>

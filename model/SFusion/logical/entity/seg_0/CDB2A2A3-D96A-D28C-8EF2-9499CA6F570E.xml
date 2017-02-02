@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CDB2A2A3-D96A-D28C-8EF2-9499CA6F570E" name="CMN_TT_DEPERTMENT">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:52:36 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<synonymToDisplay>部署</synonymToDisplay>
+</Entity>

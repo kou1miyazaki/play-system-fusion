@@ -1,0 +1,95 @@
+@(title: String, result: List[forms.cmn.ItemForm], whois: List[forms.cmn.ItemForm])
+
+@import play.i18n._
+@import utils.cmn.Session
+@import consts.cmn.CommonConstraint
+@import consts.adm.PortletConstraint
+@import views.html.cmn.incTabDisplay
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getTitle(name: String, url: String, icon: String) = {
+	<a href="@url" class="">
+		<img src="@routes.Assets.versioned(icon)" width=@CommonConstraint.C_SIZE_ICON_SM height=@CommonConstraint.C_SIZE_ICON_SM>&nbsp;@name
+	</a>
+}
+
+@display(itemType: String, value: String) = {
+	@itemType match {
+		case "image"	=> {<img src="@value" width=@CommonConstraint.C_SIZE_ICON_SS height=@CommonConstraint.C_SIZE_ICON_SS />@value}
+		case "url"	 	=> {<a href="@value" target="new">@value</a>}
+		case _			=> {@value}
+	}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main(title, null) {
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header navbar-brand">
+				@getTitle(PortletConstraint.C_LABEL_DETAIL_NAME, PortletConstraint.C_URL_INDEX, PortletConstraint.C_ICON)
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<li>
+					<form class="navbar-form navbar-left">paz
+						<a class="btn btn-default btn-sm" href="@PortletConstraint.C_URL_LIST/@Session.get(CommonConstraint.C_SESSION_PAGE)">@Messages.get("common.button.list")</a>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<table class="table table-bordered table-condensed">
+					@for(item <- result) {
+						@if(item.displayType == "col1") {
+							<tr>
+							<th class="col-md-3 active">@item.name</th>
+							<td class="col-md-9">@display(item.itemType,item.value)</td>
+							</tr>
+						}
+					}
+				  </tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<table class="table table-bordered table-condensed">
+					@for(item <- result) {
+						@if(item.displayType == "col2") {
+							<tr>
+							<th class="col-md-3 active">@item.name</th>
+							<td class="col-md-9">@display(item.itemType,item.value)</td>
+							</tr>
+						}
+					}
+				  </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="bs-component">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#whois"" data-toggle="tab">レコード</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active in" id="whois">
+				@incTabDisplay(whois)
+			</div>
+		</div>
+	</div>
+
+</div>
+}

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bootstrap3 javascript Tutorial</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+      body{
+        min-height: 2000px;
+        margin-top: 70px;
+      }
+      hr{
+        margin: 40px 0;
+      }
+
+      /*modalの拡大画像の幅*/
+      .modal-body img{
+        width: 100%;
+        height: 100%;
+      }
+
+      /*modalのクローズアイコン*/
+      i.close{
+        font-size: 24px;
+        opacity: 1;
+        color: #777;
+      }
+      i.close:hover{
+        color: #aaa;
+      }
+
+      /*モーダル非表示*/
+      .hidden{
+        display: none;
+      }
+
+      /* アイコンサイズ */
+      #collapse_icon{
+        font-size: 36px;
+      }
+    </style>
+
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".scroll-spy-sample" data-offset="50">
+    <div class="container">
+
+      <div class="jumbotron">
+        <h1>Bootstrap3 javascript Tutorial</h1>
+        <p>このチュートリアルはBootstrap3のjavascriptチュートリアルです。</p>
+        <p>ソースコードのダウンロードは <a href="https://github.com/takeshi-du/Bootstrap3-js-tutorial" class="btn btn-primary">こちら</a></p>
+      </div>
+
+      <!--=================================================
+
+                            Modals
+
+      ==================================================-->
+      <h2 id="basic-modals">Basic Modals</h2>
+
+      <!--
+
+        Modalの呼び出しボタン
+        data-target="#"はModalのidを使用して紐づける
+
+      -->
+      <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Basic Modals
+      </button>
+
+      <!--
+
+        Modalの中身
+        ・フェードインさせるときはfadeをつける
+        ・ヘッダー、ボディ、フッターに分けることができる
+
+      -->
+      <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">タイトル</h4>
+            </div>
+            <div class="modal-body">
+              <p>モーダルのbody部分</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+              <button type="button" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal -->
+
+      <h2 id="image-popup">Image Popup Modals</h2>
+
+      <!--
+
+        サムネイルをクリックするとModalの呼び出し
+        imgタグにdata-toggleとdata-targetを追加するだけで簡単に作成可能
+
+      -->
+      <img src="img/thumb.png" height="160" width="183" alt="img_modal" data-toggle="modal" data-target="#img_modal">
+
+      <!--
+
+        Modalの中身
+        ・ヘッダーを外してbody部分に大きな画像を配置
+        ・フッターのボタンも閉じるアイコンに変更
+
+      -->
+      <div id="img_modal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <img src="img/screenshot-lg.png" height="3693" width="1151" alt="img_modal">
+            </div>
+            <div class="modal-footer">
+              <i class="close fa fa-times-circle-o" data-dismiss="modal"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal -->
+
+      <h2 id="auto-modal">Auto Popup modal.js</h2>
+
+      <!--
+
+        Modalが閉じられたら以下を表示
+
+      -->
+      <h3 id="hide_modal" class="hidden">登録ありがとうございました。</h3>
+
+      <div id="auto_modal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">メルマガ登録はこちら！！</h4>
+            </div>
+            <div class="modal-body text-center">
+              <form class="form-inline" role="form">
+                <div class="form-group">
+                  <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                </div>
+                <button type="submit" class="btn btn-default">Subscribe</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal -->
+
+
+
+      <hr>
+
+      <!--=================================================
+
+                            Scrollspy
+
+      ==================================================-->
+
+      <nav id="navbar-scrollspy" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Designup.jp</a>
+          </div>
+
+          <!-- ここに関連づけるクラス名を入れる -->
+          <div class="collapse navbar-collapse scroll-spy-sample">
+            <ul class="nav navbar-nav">
+
+              <!-- <a>タグにターゲットを指定する -->
+              <li class=""><a href="#basic-modals">BasicModals</a></li>
+              <li class=""><a href="#image-popup">ImagePopUp</a></li>
+              <li class=""><a href="#auto-modal">AutoModals</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <!--=================================================
+
+                            Carousel
+
+      ==================================================-->
+
+      <h2>Basic Carousel</h2>
+
+      <div id="carousel_sample" class="carousel slide" data-ride="carousel">
+
+        <!-- 中央に表示される丸いボタン -->
+        <ol class="carousel-indicators">
+
+          <!--
+            Carouselのid名を合わせる、スライダーの数だけ用意する
+            data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定
+           -->
+          <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
+          <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+
+        </ol>
+
+        <!-- ここからCarouselの中身 -->
+        <div class="carousel-inner">
+
+          <!-- item = １ページ、activeを入れたところが最初に表示される -->
+          <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#333/text:Third slide" alt="Third slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojMzMzO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+
+        </div>
+
+        <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
+        <a class="left carousel-control" href="#carousel_sample" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel_sample" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+
+
+      <h2>Slide Stop</h2>
+
+      <!--
+        data-ride="carousel"を入れると自動的にスライドが開始される
+      -->
+      <div id="carousel_sample2" class="carousel slide" data-interval="3000">
+
+        <!-- 中央に表示される丸いボタン -->
+        <ol class="carousel-indicators">
+
+          <!--
+            Carouselのid名を合わせる、スライダーの数だけ用意する
+            data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定
+           -->
+          <li data-target="#carousel_sample2" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel_sample2" data-slide-to="1" class=""></li>
+          <li data-target="#carousel_sample2" data-slide-to="2" class=""></li>
+
+        </ol>
+
+        <!-- ここからCarouselの中身 -->
+        <div class="carousel-inner">
+
+          <!-- item = １ページ、activeを入れたところが最初に表示される -->
+          <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNTU1O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+Rmlyc3Qgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==">
+          </div>
+          <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#333/text:Third slide" alt="Third slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojMzMzO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+">
+          </div>
+
+        </div>
+
+        <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
+        <a class="left carousel-control" href="#carousel_sample2" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel_sample2" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+
+      <hr>
+
+      <!--=================================================
+
+                            Collapse
+
+      ==================================================-->
+
+      <h2>Basic Accordion</h2>
+
+      <!--
+        id : ここで指定したidとタイトル部分のdata-parentを合わせる
+      -->
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+
+              <!--
+                data-toggle : Collapseを起動させる
+                data-parent : アコーディオン風に閉じたり開いたりするためのもの
+                href : 指定した場所のパネルを開く
+              -->
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                タイトル #1
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <h3>アコーディオンの中身</h3>
+              <ul>
+                <li>リスト１</li>
+                <li>リスト２</li>
+                <li>リスト３</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                タイトル #2
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                タイトル #3
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Button Collapse</h2>
+
+      <!--
+        data-toggle : Collapseを起動させる
+        data-target : ここで指定したidとボタンを紐づける
+      -->
+      <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#demo">
+        Collapse OPEN!
+      </button>
+
+      <!--
+        .collapse : コンテンツを隠す
+        .collapse.in : コンテンツを開いた状態にする
+      -->
+      <div id="demo" class="collapse">
+        <h3>アコーディオンの中身</h3>
+        <ul>
+          <li>リスト１</li>
+          <li>リスト２</li>
+          <li>リスト３</li>
+        </ul>
+      </div>
+
+      <h2>Collapse.js</h2>
+
+      <i class="fa fa-cog" id="collapse_icon" data-toggle="collapse"></i>
+
+      <div id="demo2" class="collapse">
+        <ul>
+          <li>環境設定</li>
+          <li>ヘルプ</li>
+          <li>閉じる</li>
+        </ul>
+      </div>
+
+
+       <hr>
+
+      <!--=================================================
+
+                            Tooltips
+
+      ==================================================-->
+
+      <h2>Basic Tooltips</h2>
+
+      <a id="tooltip-sample1" href="#" data-toggle="tooltip" title="Tooltip!">
+        Tooltip!
+      </a>
+      <button id="tooltip-sample2" type="button" class="btn btn-default" data-toggle="tooltip" title="Button!">
+        Button Tips
+      </button>
+      <p>
+        Lorem ipsum dolor sit <strong id="tooltip-sample3" data-toggle="tooltip" title="Strong!">amet</strong>, consectetur  adipisicing elit.
+      </p>
+      <i class="fa fa-question-circle" id="tooltip-sample4" data-toggle="tooltip" data-placement="right" title="Icon!"></i>
+
+
+      <h2>Tooltip.js</h2>
+
+      <button class="btn btn-primary" id="tooltip-sample5" data-toggle="tooltip">
+        tooltip.js
+      </button>
+
+
+
+      <hr>
+
+      <!--=================================================
+
+                            Tab
+
+      ==================================================-->
+
+      <h2>Basic Tab</h2>
+
+      <!--
+        タブの切り替えボタン
+        data-toggle : tabを入れることでボタン機能を有効に
+        href : リンク先にコンテンツのid名を入れる
+      -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Tab1</a></li>
+        <li><a href="#tab2" data-toggle="tab">Tab2</a></li>
+        <li><a href="#tab3" data-toggle="tab">Tab3</a></li>
+      </ul>
+
+      <!--
+        タブの切り替えボタン
+        class : tab-paneで非表示化
+        id : ボタンと同じidを使用する
+      -->
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab1">Tab1 Content</div>
+        <div class="tab-pane fade" id="tab2">Tab2 Content</div>
+        <div class="tab-pane fade" id="tab3">Tab3 Content</div>
+      </div>
+
+
+    </div>
+    <!-- /container -->
+
+    <footer style="padding: 20px 0;">
+      <div class="container" style="text-align: center;">
+        copy 2014 <a href="http://designup.jp/">designup.jp</a> <a href="https://github.com/takeshi-du">@takeshi-du</a>
+      </div>
+    </footer>
+
+
+    <script src="/asset/sfusion/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/main.js"></script>
+    <script src="/asset/sfusion/js/bootstrap.min.js"></script>
+  </body>
+</html>

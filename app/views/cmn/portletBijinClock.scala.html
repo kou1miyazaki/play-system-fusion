@@ -1,0 +1,42 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import play.i18n._
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@portletId = @{"bijinClock"}
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@active(activeFlg: Boolean) = {
+	@if(activeFlg) {in}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<a class="bg-primary" data-toggle="collapse" data-parent="#accordion" href="#@portletId" class="collapsed">
+			@title
+		</a>
+	</div>
+	<div id="@portletId" class="panel-collapse collapse @active(activeFlg)">
+		<div class="panel-body">
+			<div class="bijin_blog_part" data-width="300" data-bcid="jp"></div>
+			<script type="text/javascript">
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s);
+					js.id = id;
+					js.async = true;
+					js.src = "http://blogparts.bijint.com/blogparts/js/script.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, "script", "bijint-widget"));
+			</script>
+		</div>
+	</div>
+</div>

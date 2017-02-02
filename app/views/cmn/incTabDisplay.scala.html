@@ -1,0 +1,41 @@
+@(whois: List[forms.cmn.ItemForm])
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="row">
+	<div class="col-lg-6">
+		<div class="bs-component">
+			<table class="table table-bordered table-condensed">
+				@for(item <- whois) {
+					@if(item.displayType == "col1") {
+						<tr>
+						<th class="col-md-3 active">@item.name</th>
+						<td class="col-md-9">@item.value</td>
+						</tr>
+					}
+				}
+			  </tr>
+			</table>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="bs-component">
+			<table class="table table-bordered table-condensed">
+				@for(item <- whois) {
+					@if(item.displayType == "col2") {
+						<tr>
+						<th class="col-md-3 active">@item.name</th>
+						<td class="col-md-9">@item.value</td>
+						</tr>
+					}
+				}
+			  </tr>
+			</table>
+		</div>
+	</div>
+</div>

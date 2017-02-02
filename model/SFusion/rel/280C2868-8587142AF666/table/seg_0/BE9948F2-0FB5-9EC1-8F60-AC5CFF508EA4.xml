@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE9948F2-0FB5-9EC1-8F60-AC5CFF508EA4" name="DEPERTMENY">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>CDB2A2A3-D96A-D28C-8EF2-9499CA6F570E</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEPERTMENY_ID" id="66AC5C48-E759-CADD-D0EB-63710175F902">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="COMPANY_COMPANY_ID" id="32FA8FEA-304B-EA96-B1DD-9CF29B48EACB">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1F68F321-C6D3-BAF0-9B47-A20279B9C8F0" referredColumn="94179741-14F8-FD24-9926-4C63E6CAC471"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99656A0D-951B-7BAC-315F-8351BBE9CCAC" name="DEPERTMENY_PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="66AC5C48-E759-CADD-D0EB-63710175F902"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3CA90827-7C28-88AA-3B7D-1CE1BD244425" name="DEPERTMENY_COMPANY_FK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>F92CBC08-B7C2-EEAB-1F6B-CD293DC838EA</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="32FA8FEA-304B-EA96-B1DD-9CF29B48EACB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

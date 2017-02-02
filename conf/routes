@@ -1,0 +1,115 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET      /portal/:portalType/:portalTabType		controllers.cmn.HomeController.index(portalType: String, portalTabType)
+GET      /tab/:tabType							controllers.cmn.HomeController.tab(tabType: String)
+GET      /url									controllers.cmn.HomeController.url(url: String)
+GET      /urltab								controllers.cmn.HomeController.tabUrl(url: String, tabType: String)
+GET      /profile								controllers.cmn.HomeController.profile()
+
+GET      /session								controllers.sys.SystemController.sessionList()
+GET      /setup									controllers.sys.SystemController.setup()
+GET      /search								controllers.cmn.SearchController.search()
+
+GET      /login									controllers.cmn.LoginController.login()
+GET      /logout								controllers.cmn.LoginController.logout()
+POST     /auth									controllers.cmn.LoginController.auth()
+
+# Bookmark
+GET      /adm/bookmark/index					controllers.adm.BookmarkController.index()
+POST    /adm/bookmark/search					controllers.adm.BookmarkController.search()
+GET      /adm/bookmark/list/:page				controllers.adm.BookmarkController.list(page: Integer)
+GET      /adm/bookmark/detail/:id				controllers.adm.BookmarkController.detail(id: Integer)
+GET      /adm/bookmark/edit/:id					controllers.adm.BookmarkController.edit(id: Integer)
+POST     /adm/bookmark/save						controllers.adm.BookmarkController.save()
+POST     /adm/bookmark/delete/:id				controllers.adm.BookmarkController.delete(id: Integer)
+GET      /bookmark/full							controllers.adm.BookmarkController.iFrameFull(url: String)
+GET      /bookmark/tab/:bookmarkType/:id		controllers.adm.BookmarkController.iFrameTab(bookmarkType: String, id: Integer)
+GET      /bookmark/menu/:bookmarkType/:id		controllers.adm.BookmarkController.iFrameMenu(bookmarkType: String, id: Integer)
+GET      /bookmark/dial/:bookmarkType			controllers.adm.BookmarkController.iFrameDial(bookmarkType: String)
+
+# Menu
+GET      /adm/menu/index						controllers.adm.MenuController.index()
+POST     /adm/menu/search						controllers.adm.MenuController.search()
+GET      /adm/menu/list/:page					controllers.adm.MenuController.list(page: Integer)
+GET      /adm/menu/detail/:id					controllers.adm.MenuController.detail(id: Integer)
+GET      /adm/menu/edit/:id						controllers.adm.MenuController.edit(id: Integer)
+POST     /adm/menu/save							controllers.adm.MenuController.save()
+POST     /adm/menu/delete/:id					controllers.adm.MenuController.delete(id: Integer)
+
+# Account
+GET      /adm/account/index						controllers.adm.AccountController.index()
+POST      /adm/account/search					controllers.adm.AccountController.search()
+GET      /adm/account/list/:page				controllers.adm.AccountController.list(page: Integer)
+GET      /adm/account/detail/:id				controllers.adm.AccountController.detail(id: Integer)
+GET      /adm/account/edit/:id					controllers.adm.AccountController.edit(id: Integer)
+POST     /adm/account/save						controllers.adm.AccountController.save()
+POST     /adm/account/delete/:id				controllers.adm.AccountController.delete(id: Integer)
+
+# Role
+GET      /adm/role/index						controllers.adm.RoleController.index()
+POST      /adm/role/search						controllers.adm.RoleController.search()
+GET      /adm/role/list/:page					controllers.adm.RoleController.list(page: Integer)
+GET      /adm/role/detail/:id					controllers.adm.RoleController.detail(id: Integer)
+GET      /adm/role/edit/:id						controllers.adm.RoleController.edit(id: Integer)
+POST     /adm/role/save							controllers.adm.RoleController.save()
+POST     /adm/role/delete/:id					controllers.adm.RoleController.delete(id: Integer)
+
+# Portal
+GET      /adm/portal/index						controllers.adm.PortalController.index()
+POST    /adm/portal/search						controllers.adm.PortalController.search()
+GET      /adm/portal/list/:page					controllers.adm.PortalController.list(page: Integer)
+GET      /adm/portal/detail/:id					controllers.adm.PortalController.detail(id: Integer)
+GET      /adm/portal/edit/:id					controllers.adm.PortalController.edit(id: Integer)
+POST     /adm/portal/save						controllers.adm.PortalController.save()
+POST     /adm/portal/delete/:id					controllers.adm.PortalController.delete(id: Integer)
+
+# Portlet
+GET      /adm/portlet/index						controllers.adm.PortletController.index()
+POST    /adm/portlet/search						controllers.adm.PortletController.search()
+GET      /adm/portlet/list/:page				controllers.adm.PortletController.list(page: Integer)
+GET      /adm/portlet/detail/:id				controllers.adm.PortletController.detail(id: Integer)
+GET      /adm/portlet/edit/:id					controllers.adm.PortletController.edit(id: Integer)
+POST     /adm/portlet/save						controllers.adm.PortletController.save()
+POST     /adm/portlet/delete/:id				controllers.adm.PortletController.delete(id: Integer)
+
+# Portlet Parameter
+GET      /adm/parameter/index					controllers.adm.PortletParameterController.index()
+POST    /adm/parameter/search					controllers.adm.PortletParameterController.search()
+GET      /adm/parameter/list/:page				controllers.adm.PortletParameterController.list(page: Integer)
+GET      /adm/parameter/detail/:id				controllers.adm.PortletParameterController.detail(id: Integer)
+GET      /adm/parameter/edit/:id				controllers.adm.PortletParameterController.edit(id: Integer)
+POST     /adm/parameter/save					controllers.adm.PortletParameterController.save()
+POST     /adm/parameter/delete/:id				controllers.adm.PortletParameterController.delete(id: Integer)
+# Person
+#GET      /adm/person/index						controllers.adm.PersonController.index()
+#GET      /adm/person/list						controllers.adm.PersonController.list(searchWord: String)
+#GET      /adm/person/detail/:id				controllers.adm.PersonController.detail(id: Integer)
+#GET      /adm/person/edit/:id					controllers.adm.PersonController.edit(id: Integer)
+#POST     /adm/person/save						controllers.adm.PersonController.save()
+#POST     /adm/person/delete/:id				controllers.adm.PersonController.delete(id: Integer)
+
+# Database
+GET      /database/:tableName/index				controllers.dbx.TableDataController.index(tableName: String)
+POST     /database/:tableName/search			controllers.dbx.TableDataController.search(tableName: String)
+GET      /database/:tableName/list/:page		controllers.dbx.TableDataController.list(tableName: String, page: Integer)
+GET      /database/:tableName/detail/:id		controllers.dbx.TableDataController.detail(tableName: String, id: Integer)
+GET      /database/:tableName/edit/:id			controllers.dbx.TableDataController.edit(tableName: String, id: Integer)
+POST     /database/:tableName/save				controllers.dbx.TableDataController.save(tableName: String)
+
+# Log
+GET      /log/index								controllers.sys.LogController.index()
+POST     /log/search							controllers.sys.LogController.search()
+GET      /log/list/:page						controllers.sys.LogController.list(page: Integer)
+GET      /log/detail/:id						controllers.sys.LogController.detail(id: Integer)
+
+# Account
+GET      /timeline/index						controllers.sns.TimelineController.index()
+POST     /timeline/send							controllers.sns.TimelineController.send()
+GET      /message/index							controllers.sns.MessageController.index()
+POST     /message/send							controllers.sns.MessageController.send()
+
+GET      /error500								controllers.Application.error500(f: Integer ?= 0)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file							controllers.Assets.versioned(path="/public", file: Asset)

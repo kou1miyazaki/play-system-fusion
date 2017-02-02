@@ -1,0 +1,19 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@alartType =@{parameter.get("alartType")}
+@message =@{parameter.get("message")}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="alert alert-dismissible alert-@alartType">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	@if(title!="") {
+		<h4>@title</h4>
+	}
+	<p>@message</p>
+</div>

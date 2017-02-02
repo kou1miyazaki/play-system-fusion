@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<CollectionType class="oracle.dbtools.crest.model.design.datatypes.CollectionType" name="CollectionType_4" directorySegmentName="seg_0" id="9BB78AA6-D35B-C8A9-3F34-680F1342FEE3">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:47:51 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<predefined>false</predefined>
+<dataTypeDescr class="oracle.dbtools.crest.model.design.datatypes.CollectionType$DataTypeWrapper">
+<size></size>
+<type>DOM3000004</type>
+<isreference>false</isreference>
+</dataTypeDescr>
+<maxElement>1</maxElement>
+<type>ARRAY</type>
+</CollectionType>

@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CBEB52AB-28A6-9D33-0266-DB14435F3DD9" name="CMN_TT_PARAMETER_VAL">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 01:49:21 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<synonymToDisplay>パラメータ値</synonymToDisplay>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="PARAMETER_CD" id="888769C4-67AD-A1CA-B4B8-661930B6A4E0">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:29:56 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<domain>177D932B-96BA-6429-DD60-4FB2E6BDEFD9</domain>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="USER_CD" id="A2BAA2FF-94C8-49B4-F038-7543A6380CA1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:29:56 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<domain>177D932B-96BA-6429-DD60-4FB2E6BDEFD9</domain>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PARAMETER_CD1" id="FDD9474F-867D-F52C-8D4D-D280658446E1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:31:09 UTC</createdTime>
+<generatorID>9A22DCF4-50E1-CF68-215E-CB3188998185</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<referedAttribute>3EEB659F-77A4-F2C5-6340-32A46B21ED24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<domain>177D932B-96BA-6429-DD60-4FB2E6BDEFD9</domain>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VALUE" id="AB22FDE0-CF06-EF7C-B940-5F770B4487D4">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:49:23 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<domain>CC46302B-B28D-3899-5FC6-FC4E4352BAC2</domain>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="USER_CD1" id="54E979BA-E743-C895-9EBE-E9E6685010B7">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:00:10 UTC</createdTime>
+<generatorID>C30A5DBF-2351-1CE6-932D-830AF6CF0A0B</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<referedAttribute>2E632A2E-9728-C9C2-2423-A5E8998EE0CE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<domain>177D932B-96BA-6429-DD60-4FB2E6BDEFD9</domain>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A4456B9D-8525-00B3-675D-95D697F5F6FC" name="CMN_TT_PARAMETER_VAL PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:30:34 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<engineerTo>
+<item key="280C2868-C069-21C4-5288-8587142AF666" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A2BAA2FF-94C8-49B4-F038-7543A6380CA1</attributeRef>
+<attributeRef>888769C4-67AD-A1CA-B4B8-661930B6A4E0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

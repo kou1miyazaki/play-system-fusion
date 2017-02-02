@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="CMN_TT_USER_INFO" directorySegmentName="seg_0" id="3F789A39-AC96-BE58-F938-AD9FD5442ACB">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CMN_TT_PERSON_EMP_CD" id="17EBDCE5-D261-3178-D7F3-54A8E352F44C">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD" id="30245C93-F5C8-DDFD-3641-BE6B87741408">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACCOUNT_ID" id="5A7F452B-C2F6-21BB-E414-49520E2E81A1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_CD" id="D4DE3A1D-DD38-B490-51C3-9C242388656D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PERSON_CD" id="E0FB2658-4AA2-2F18-2085-370ABAA2377B">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_NAME" id="FC5F8B0B-6278-6821-439A-7F5BD895E0F3">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="CMN_TT_USER_INFO__IDX" id="2FA10FBE-55F7-8D11-E9AD-EC624FA2DE07">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="CMN_TT_USER_INFO_CMN_TT_PERSON_FK" id="91653A86-35EB-C6D2-94FC-D6C5E838B07A">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CMN_TT_USER_INFO_PK" id="D028D0FA-83CE-C5AB-026B-E6F2E9BCC2E9">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:33 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

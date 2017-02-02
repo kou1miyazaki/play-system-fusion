@@ -1,0 +1,120 @@
+@(message: String,  tableName: String, data: List[java.util.HashMap[String, String]], col: List[models.dbx.TableColumnModel])
+
+@import java.util.Date
+@import play.i18n._
+@import java.util.HashMap
+@import collection.JavaConversions._
+@import utils.cmn.Session
+
+@*****************************
+* 定数定義                   *
+*****************************@
+@C_URL_INDEX  = @{"/database/" + tableName + "/index"}
+@C_URL_LIST   = @{"/database/" + tableName + "/list"}
+@C_URL_DETAIL = @{"/database/" + tableName + "/detail"}
+@C_URL_EDIT   = @{"/database/" + tableName + "/edit"}
+@C_URL_SAVE   = @{"/database/" + tableName + "/save"}
+@C_URL_DELETE = @{"/database/" + tableName + "/delete"}
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@display(itemType: String, value: String) = {
+	@itemType match {
+		case "image"	=> {<img src="@value" width=16 height=16 />@value}
+		case "url"	 	=> {<a href="@value" target="new">@value</a>}
+		case _			=> {@value}
+	}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("TableData Index", Messages.get("database.list")) {
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header">
+				<a href="@C_URL_INDEX" class="navbar-brand">
+					@Messages.get("database.list")&nbsp;[@Session.get("session.displayName")]
+				</a>
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<li><form class="navbar-form navbar-left" role="search" name="searchForm" action="@C_URL_LIST">
+					<div class="form-group">
+						<input type="text" placeholder="Search" name="searchWord" class="form-control input-sm" value="@session.get("session.searchWord")">
+						<a href="javascript:document.forms['searchForm'].submit();">
+							<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+						</a>
+						<a class="btn btn-default btn-sm" href="javascript:document.forms['searchForm'].submit();">
+							CSV作成
+						</a>
+						<a class="btn btn-default btn-sm" href="@C_URL_EDIT/0">
+							@Messages.get("common.button.create")
+						</a>
+					</div>
+				</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			@if(data != null) {
+			<table class="table table-striped table-hover table-bordered table-condensed">
+				<thead>
+				<tr>
+					@for(head <- col) {
+						<th>@head.displayName</th>
+					}
+					<th>&nbsp;</th>
+				</tr>
+				</thead>
+				<tbody>
+				@for(model <- data) {
+					@model
+					<tr>
+					@for(column <- col) {
+						@if(column.columnName.equals("id")) {
+							<td width="32">
+								<a class="btn btn-default btn-sm" href="@C_URL_DETAIL/@model.get("id")">
+									@model.get("id")
+								</a>
+							</td>
+						} else {
+							<td>
+								@display("text",model.get(column.columnName))
+							</td>
+						}
+					}
+							<td width="32">
+								<a href="@C_URL_EDIT/@model.get("id")">
+									<img src="@routes.Assets.versioned("/images/icon/edit.png")" width=32 height=32 />
+								</a>
+							</td>
+					</tr>
+				}
+				</tbody>
+			</table>
+			<div class="bs-component navbar-right">
+				<ul class="pagination pagination-sm btn-default">
+					<li class="disabled"><a href="#">«</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">»</a></li>
+				</ul>
+			</div>
+
+			} else {
+			<div class="alert alert-warning">
+				<span>@Messages.get("common.nodatafound")</span>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+}

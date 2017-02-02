@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#auto_modal").modal("show"),$("#auto_modal").on("hidden.bs.modal",function(o){$("#hide_modal").removeClass("hidden")})});

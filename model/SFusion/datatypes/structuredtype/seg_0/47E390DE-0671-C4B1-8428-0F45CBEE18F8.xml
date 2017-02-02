@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StructuredType class="oracle.dbtools.crest.model.design.datatypes.StructuredType" name="SDO_GEOMETRY" directorySegmentName="seg_0" id="47E390DE-0671-C4B1-8428-0F45CBEE18F8">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-11 12:18:00 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<visible>false</visible>
+<predefined>true</predefined>
+<final>false</final>
+<instantiable>true</instantiable>
+<attributes itemClass="oracle.dbtools.crest.model.design.datatypes.TypeElement">
+<Attribute name="属性_1" id="DE21481A-E3E9-A60A-1DE0-623B3CEC9442">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:47:27 UTC</createdTime>
+<ownerDesignName>SystemFusionERD</ownerDesignName>
+<mandatory>false</mandatory>
+<precision>0</precision>
+<reference>false</reference>
+<scale>0</scale>
+<type>DOM3000004</type>
+</Attribute>
+<Attribute name="属性_2" id="8CE20C12-2239-A385-7997-31C2DFC95950">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:47:28 UTC</createdTime>
+<ownerDesignName>SystemFusionERD</ownerDesignName>
+<mandatory>false</mandatory>
+<precision>0</precision>
+<reference>false</reference>
+<scale>0</scale>
+<type>DOM3000004</type>
+</Attribute>
+<Attribute name="属性_3" id="9890EF89-2C15-C5DC-3B1A-9663391401DF">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:47:29 UTC</createdTime>
+<ownerDesignName>SystemFusionERD</ownerDesignName>
+<mandatory>false</mandatory>
+<precision>0</precision>
+<reference>false</reference>
+<scale>0</scale>
+<type>DOM3000004</type>
+</Attribute>
+</attributes>
+</StructuredType>

@@ -1,0 +1,97 @@
+@(message: String, portalType: String, portalTabType: String, portal: List[models.adm.PortalModel], portlet: List[models.adm.PortletModel])
+
+@import consts.cmn.CommonConstraint
+@import utils.cmn.Session
+@import views.html.cmn.portletDispacher
+@import models.adm.PortletModel
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Home", "ホーム") {
+
+	<link rel="stylesheet" type="text/css" media="all" href="@routes.Assets.versioned("/snow/common.css")" />
+	<script type="text/javascript" src="@routes.Assets.versioned("/snow/snow.js")"></script>
+	<script type="text/javascript" src="@routes.Assets.versioned("/snow/common.js")"></script>
+
+<div class="container">
+<br><br><br>
+
+	<div class="row">
+		@for(item <- portlet) {
+			@if(item.displayType=="head1") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+			}
+		}
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="head2") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="head3") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="head4") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+	</div>
+ 	<div class="bs-component">
+		<ul class="nav nav-tabs">
+			@for(item <- portal) {
+				@if(portalTabType==item.portalTabType){<li class="active">} else {<li>}
+					<a href="@item.url">
+						<img src="@item.imageIcon" width=16 height=16 />@item.portalName
+					</a>
+				</li>
+			}
+		</ul>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="col1") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="col2") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+		<div class="col-lg-4">
+			@for(item <- portlet) {
+				@if(item.displayType=="col3") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+				}
+			}
+		</div>
+	</div>
+	<div class="row">
+		@for(item <- portlet) {
+			@if(item.displayType=="col4") {
+					@portletDispacher(item.id, item.portletName, item.displayName, item.parameter, item.activeFlg)
+			}
+		}
+	</div>
+</div>
+}

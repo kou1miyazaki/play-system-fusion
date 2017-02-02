@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="APEX_040000" directorySegmentName="seg_0" id="C4CC7B5D-8766-01D1-34D3-6CB79269F02C">
+<sourceConnName>XE</sourceConnName>
+<sourceObjName>APEX_040000</sourceObjName>
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 04:20:38 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+</UserOraclev10g>

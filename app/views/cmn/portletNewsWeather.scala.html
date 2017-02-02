@@ -1,0 +1,38 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import play.i18n._
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@portletId = @{"newsWeather"}
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@active(activeFlg: Boolean) = {
+	@if(activeFlg) {in}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<a class="bg-primary" data-toggle="collapse" data-parent="#accordion" href="#@portletId" class="collapsed">
+			@title
+		</a>
+	</div>
+	<div id="@portletId" class="panel-collapse collapse @active(activeFlg)">
+		<div class="panel-body text-center">
+			<!--ウェザーニュースブログパーツ-->
+			<div id="weathernews_blog_parts"></div>
+			<script type="text/javascript">
+				document.write('<scr' + 'ipt type="text/javascript" src="http://weathernews.jp/blog/js/blog.js?' + (new Date().valueOf()) + '"></scr' + 'ipt>');
+			</script>
+			<script type="text/javascript">// <![CDATA[
+				wni_blog('blog/forecast:centeredOn=80',200,80,false);// ]]>
+			</script>
+		</div>
+	</div>
+</div>

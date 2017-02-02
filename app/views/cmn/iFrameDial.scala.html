@@ -1,0 +1,58 @@
+@(message: String, result: List[models.adm.BookmarkModel])
+
+@import models.adm.BookmarkModel
+@import utils.cmn.Session
+@import consts.cmn.CommonConstraint
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Bookmart Tab", "ブックマークタブ") {
+
+<div class="container">
+	<h5></h5>
+	<div class="bs-component">
+		<ul class="nav nav-pills">
+			@for(bookmark <- result) {
+				<li>
+					<div class="panel panel-@CommonConstraint.C_THEMA_CLASS">
+						<div class="panel-heading">
+							@if(BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType).size() == 0) {
+								<ul class="nav nav-pills">
+									<li>
+										<a href="@bookmark.url" target="NEW" class="panel-title">
+											@bookmark.name
+										</a>
+									</li>
+								</ul>
+							}  else {
+								<ul class="nav nav-pills">
+									<li class="dropdown">
+										<a class="dropdown-toggle panel-title" data-toggle="dropdown" href="#"">
+											@bookmark.name<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+										@for(children <- BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType)) {
+											<li>
+												<a href="@children.url" target="NEW" class="panel-title">
+													<img src="@children.imageIcon" class="img-responsive img-rounded" width=32 height=32 />@children.name
+												</a>
+											</li>
+										}
+										</ul>
+									</li>
+								</ul>
+							}
+						</div>
+						<div class="panel-body text-center">
+							<a href="@bookmark.url" target="NEW">
+								<img src="@bookmark.imageIcon" width=100 height=100 />
+							</a>
+						</div>
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+</div>
+}

@@ -1,0 +1,106 @@
+@(title: String, form: Form[forms.adm.RoleForm])
+
+@import play.i18n._
+@import utils.cmn.Session
+@import views.html.cmn.incDialog
+@import consts.cmn.CommonConstraint
+@import consts.adm.RoleConstraint
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getTitle(name: String, url: String, icon: String) = {
+	<a href="@url" class="">
+		<img src="@routes.Assets.versioned(icon)" width=@CommonConstraint.C_SIZE_ICON_SM height=@CommonConstraint.C_SIZE_ICON_SM>&nbsp;@name
+	</a>
+}
+
+@getField(inputType: String, field: Field, label: String) = {
+	<div class="form-group">
+		<tr>
+			<th class="col-md-3 active">
+				<label class="control-label" for="inputSmall">@label</label>
+			</th>
+			<td class="col-md-9">
+				<input placeholder="@label" id="@field.id" name="@field.name" value="@field.value" class="form-control input-sm" id="inputSmall" type="text" >
+				@if(field.hasErrors) {
+	           		<span class="help-block">@field.errors.mkString(", ")</span>
+	           	}
+			</td>
+		</tr>
+	</div>
+}
+@*****************************
+* 本体定義                   *
+*****************************@
+@main(title, null) {
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header navbar-brand">
+				@getTitle(title, RoleConstraint.C_URL_INDEX, RoleConstraint.C_ICON)
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<li>
+					<a class="btn btn-default btn-sm" href="@RoleConstraint.C_URL_LIST/@Session.get(CommonConstraint.C_SESSION_PAGE)">@Messages.get("common.button.list")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" href="javascript:document.forms['editForm'].submit();">@Messages.get("common.button.save")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-msgbox">@Messages.get("common.button.delete")</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-6">
+		<table class="table table-bordered table-condensed">
+		<form class="form-horizontal" name="editForm" role="form" action="@RoleConstraint.C_URL_SAVE" method="POST">
+			@defining(form("id")) { idField =>
+				<div class="form-group">
+					<tr>
+						<th class="col-md-3 active">
+							<label class="control-label" for="inputSmall">@RoleConstraint.C_ITEM_LABEL.get(0)</label>
+						</th>
+						<td class="col-md-9">
+							@if(session.get("pMode")=="insert") {
+								<input class="form-control input-sm" id="disabledInput" placeholder="@Messages.get("common.label.autocount")" disabled="" type="text" name="@idField.name" value="@idField.value">
+							} else {
+								<input class="form-control input-sm" placeholder="@idField.value" disabled="" type="text" id="@idField.id" name="@idField.name" value=""@idField.value"">
+							}
+						</td>
+					</tr>
+				</div>
+			}
+			@defining(form("name")) { nameField =>
+				@getField("text", nameField, RoleConstraint.C_ITEM_LABEL.get(1))
+			}
+			@defining(form("url")) { urlField =>
+				@getField("text", urlField, RoleConstraint.C_ITEM_LABEL.get(2))
+			}
+		</table>
+	</div>
+	<div class="col-lg-6">
+		<table class="table table-bordered table-condensed">
+		</form>
+		</table>
+	</div>
+</div>
+
+<form name="deleteForm" action="@RoleConstraint.C_URL_DELETE/@Session.get(CommonConstraint.C_SESSION_ID)" method="post">
+</form>
+
+@*****************************
+* ダイアログ定義             *
+*****************************@
+@incDialog("modal-msgbox",
+	Messages.get("common.dialog.title"),
+	Messages.get("common.dialog.delete"),
+	"document.forms['deleteForm'].submit();"
+);
+}

@@ -1,0 +1,27 @@
+@(title :String)
+
+@import play.i18n._
+@import models.adm.BookmarkModel
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@result1 = @{ BookmarkModel.getList("social") }
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-default well">
+	<div class="panel-heading well">@title</div>
+	<div class="panel-body well">
+		<ul class="list-unstyled nav-pills navbar-left">
+			@for(icon <- result1) {
+			<li>
+				<A href="@icon.url" target="new">
+					<img src="@icon.imageIcon" alt="@icon.name" width=64 height=64 />
+				</A>
+			</li>
+			}
+		</ul>
+	</div>
+</div>

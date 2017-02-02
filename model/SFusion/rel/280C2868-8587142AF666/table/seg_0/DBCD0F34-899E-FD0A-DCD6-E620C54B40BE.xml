@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DBCD0F34-899E-FD0A-DCD6-E620C54B40BE" name="Relation_8">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEPERTMENY_DEPERTMENY_ID" id="F189FB5C-0908-7D02-9BC9-B9AF046B465D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A977CB0-A839-DEC6-1F87-13E0430AB8AF" referredColumn="66AC5C48-E759-CADD-D0EB-63710175F902"/>
+</associations>
+</Column>
+<Column name="CMN_TT_PERSON_EMP_CD" id="3EC192F3-1121-7788-3096-4BEE03554EF2">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B53A2577-E5FE-85EA-85C8-C3B92A5886FA" referredColumn="2DFAC5FB-16DA-6CD7-D790-F7CAC2485344"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4B3BA364-C85D-96EB-C690-A66A817D2C70" name="Relation_8_PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F189FB5C-0908-7D02-9BC9-B9AF046B465D"/>
+<colUsage columnID="3EC192F3-1121-7788-3096-4BEE03554EF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8B82B2DF-E06B-8530-2949-904EA16FD94D" name="FK_ASS_8">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>681088A4-C078-B7D3-2B70-4CD06D276991</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F189FB5C-0908-7D02-9BC9-B9AF046B465D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="073AFDAD-DDAD-4785-CD5F-5AD4C4FE9006" name="FK_ASS_9">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>681088A4-C078-B7D3-2B70-4CD06D276991</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3EC192F3-1121-7788-3096-4BEE03554EF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

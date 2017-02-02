@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign>
+   <object objectType="Document" objectID="93E1660D-77A9-7A61-0160-F271F46FE8A5" name="データベース定義書" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.businessinfo.BIDocument" propertyParentId="2ED83163-4B2E-1C5E-29EF-C15B5730D623" propertySourceId="" propertyTargetId=""/>
+</oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign>

@@ -1,0 +1,30 @@
+@(title :String)
+
+@import play.i18n._
+@import models.adm.BookmarkModel
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@result2 = @{ BookmarkModel.getList("tools") }
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-default well">
+	<div class="panel-heading well">@title</div>
+	<div class="panel-body well">
+		<ul class="list-unstyled nav-pills navbar-left">
+			@for(icon <- result2) {
+			<li>
+				<A href="@icon.url" target="new">
+					<img src="@icon.imageIcon" alt="@icon.name" width=64 height=64 />
+				</A>
+			</li>
+			}
+		</ul>
+		<p>Made by <a href="http://thomaspark.co" rel="nofollow">Thomas Park</a>. Contact him at <a href="/cdn-cgi/l/email-protection#3145595e5c504271535e5e454246504552591f525e5c"><span class="__cf_email__" data-cfemail="d9adb1b6b4b8aa99bbb6b6adaaaeb8adbab1f7bab6b4">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a>.</p>
+		<p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
+		<p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+	</div>
+</div>

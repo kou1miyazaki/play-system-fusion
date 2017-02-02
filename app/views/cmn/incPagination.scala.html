@@ -1,0 +1,28 @@
+@(page: Integer, maxPage: Integer, url: String)
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<ul class="pagination pagination-sm btn-default">
+	@if(page == 1) {
+		<li class="disabled"><span>&laquo;</span></li>
+	} else {
+		<li><a href="@url/@{page-1}">&laquo;</a></li>
+	}
+	@for(idx <- 1 to maxPage) {
+		@if(page == idx) {
+			<li class="disabled"><span>@idx</span></li>
+		} else {
+			<li><a href="@url/@idx">@idx</a></li>
+		}
+	}
+	@if(page == maxPage) {
+		<li class="disabled"><span>&raquo;</span></li>
+	} else {
+		<li><a href="@url/@{page+1}">&raquo;</a></li>
+	}
+</ul>

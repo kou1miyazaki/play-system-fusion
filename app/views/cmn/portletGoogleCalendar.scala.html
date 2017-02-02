@@ -1,0 +1,28 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import play.i18n._
+@import utils.cmn.RSS
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@active(activeFlg: Boolean) = {
+	@if(activeFlg) {in}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="row">
+	<div class="panel panel-primary">
+		<div class="panel-heading">@title</div>
+		<div class="panel-body">
+			<iframe src="https://calendar.google.com/calendar/embed?src=kou1miyazaki%40gmail.com&ctz=Asia/Tokyo"
+				style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+</div>

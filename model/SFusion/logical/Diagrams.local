@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="main_view" objectID="F7370427-ED2D-99B3-1E01-13F5386B5682" name="Logical" visible="false"/>
+   <object objectType="sub_view" objectID="9A7F1B38-BAF2-DB3F-5633-2080BF1773F0" name="CMN-共通" visible="false"/>
+   <object objectType="sub_view" objectID="85E0DA2F-2779-5185-2F5F-C986BC0259C5" name="CMS-コンテンツ管理" visible="false"/>
+   <object objectType="sub_view" objectID="C1BA5D55-843F-5120-73FB-CB65CF09FE3E" name="CRM-顧客管理" visible="false"/>
+   <object objectType="sub_view" objectID="BFF993AD-1C7B-7B49-7430-3BC537F972EC" name="DBX-汎用データベース" visible="false"/>
+   <object objectType="sub_view" objectID="09A3A7D4-9414-3CE0-5A34-63444F173C14" name="PRJ-プロジェクト管理" visible="false"/>
+   <object objectType="sub_view" objectID="5C7149FB-FDF9-B73F-3F49-96B0E20439C0" name="SEC-セキュリティ管理" visible="false"/>
+   <object objectType="sub_view" objectID="AC3E124F-517F-2AE0-5EBD-6019D011AFC0" name="SUP-サポート管理" visible="false"/>
+   <object objectType="sub_view" objectID="48079568-7564-DB46-88B2-828FA12CDC16" name="SYS-システム管理" visible="false"/>
+   <object objectType="sub_view" objectID="7EB4479B-01BE-370B-4483-341D0D354D2E" name="ＳＳＯ-シングルサインオン" visible="false"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

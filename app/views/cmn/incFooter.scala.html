@@ -1,0 +1,29 @@
+@()
+
+@import play.i18n._
+@import models.adm.BookmarkModel
+@import views.html.cmn.portletLinkTools
+@import views.html.cmn.portletLinkSocial
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+
+<div class="row well">
+	<div class="col-lg-4">
+		@portletLinkTools("Social Links")
+	</div>
+	<div class="col-lg-4">
+		@portletLinkSocial("Tools Links")
+	</div>
+	<div class="col-lg-4">
+		@portletLinkSocial("Tools Links")
+	</div>
+	<ul class="list-unstyled">
+		<li class="pull-right"><a href="#top">@Messages.get("common.label.backtotop")</a></li>
+	</ul>
+</div>

@@ -1,0 +1,49 @@
+# common
+common.button.list=一覧
+common.button.delete=削除
+common.button.edit=編集
+common.button.create=新規追加
+common.button.save=保存
+common.button.search=検索
+common.label.autocount=自動採番
+common.label.backtotop=先頭へ戻る
+common.nodatafound=データはありません。
+common.validation=値チェック
+common.validation.error=エラーを修正してください
+common.save.success=正常に登録できました
+common.delete.success=正常に削除できました
+common.delete.error=削除に失敗しました
+common.dialog.title=確認ダイアログ
+common.dialog.ok=OK
+common.dialog.cancel=キャンセル
+common.dialog.delete=レコードを削除してもよろしいですか
+
+# bookmark
+bookmark.name.required=名前は必須です
+bookmark.bookmarkType.required=タイプは必須です
+bookmark.url.required=URLは必須です
+
+# menu
+menu.name.required=名前は必須です
+menu.menuType.required=タイプは必須です
+menu.url.required=URLは必須です
+
+# account
+account.name.required=名前は必須です
+account.bookmarkType.required=タイプは必須です
+account.url.required=URLは必須です
+
+# database
+
+# log
+
+# validation message
+#actor.validation.error=エラーを修正してください
+#actor.save.success=正常に登録できました
+#actor.delete.success=正常に削除できました
+#actor.delete.error=削除に失敗しました
+#actor.name.required=名前は必須です
+#actor.height.range=身長は{0}から{1}の範囲で入力してください
+#actor.blood.kind=血液型はA,B,AB,Oのどれかを入力してください
+#actor.birthday.pattern=誕生日は'yyyy-MM-dd'の形式で入力してください
+#actor.birthplace.range=出身地は北海道から沖縄までの都道府県を選んでください

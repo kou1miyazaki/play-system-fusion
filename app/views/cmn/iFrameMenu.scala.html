@@ -1,0 +1,67 @@
+@(message: String, result: List[models.adm.BookmarkModel])
+
+@import models.adm.BookmarkModel;
+@import utils.cmn.Session
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@retSelect(pId: Integer) = {
+  @if(pId.equals(Session.get("iframe.id").toInt)) {
+    active
+  } else {
+
+  }
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main("Bookmart Menu", "ブックマークメニュー") {
+<style type='text/css'>
+.iframe-css {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 2px;
+	height: 0;
+	overflow: hidden;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.iframe-css iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 90%;
+}
+</style>
+
+<div class="row">
+<h5></h5>
+	<div class="col-lg-3">
+		<div class="well">
+			<form class="navbar-form navbar-left" role="search" name="searchForm" action="">
+			<div class="form-group">
+				<input type="text" placeholder="Search" name="url" class="form-control input-sm" value="@Session.get("iframe.url")">
+				<a href="javascript:document.forms['searchForm'].submit();">
+					<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+				</a>
+			</div>
+			</form>
+		</div>
+		<div class="list-group">
+			@for(bookmark <- result) {
+				<a class="list-group-item" href="/bookmark/menu/@Session.get("iframe.bookmarktype")/@bookmark.id">
+					<h5 class="list-group-item-heading"><img src="@bookmark.imageIcon" width=32 height=32 />@bookmark.name</h5>
+					<p class="list-group-item-text"></p>
+				</a>
+			}
+		</div>
+	</div>
+	<div class="iframe-css">
+		<iframe src="@Session.get("iframe.url")" height="100%" width="100%" allowfullscreen="" frameborder="" ></iframe>
+	</div>
+</div>
+}

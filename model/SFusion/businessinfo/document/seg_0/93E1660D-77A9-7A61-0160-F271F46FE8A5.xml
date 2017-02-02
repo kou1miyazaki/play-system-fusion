@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BIDocument class="oracle.dbtools.crest.model.businessinfo.BIDocument" name="データベース定義書" directorySegmentName="seg_0" id="93E1660D-77A9-7A61-0160-F271F46FE8A5">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 04:29:54 UTC</createdTime>
+<ownerDesignName>SystemFusionERD</ownerDesignName>
+</BIDocument>

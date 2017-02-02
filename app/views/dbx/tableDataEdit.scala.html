@@ -1,0 +1,154 @@
+@(title: String, tableName: String, result: List[forms.cmn.ItemForm], form: Form[forms.dbx.TableDataForm]))
+
+@import play.i18n._
+@import utils.cmn.Session
+@import consts.cmn.CommonConstraint
+@import consts.dbx.TableDataConstraint
+@import views.html.cmn.incTabDisplay
+@import views.html.dbx.includeItem
+@import views.html.cmn.incDialog
+
+@*****************************
+* 定数定義                   *
+*****************************@
+@C_URL_INDEX  = @{"/database/" + tableName + "/index"}
+@C_URL_LIST   = @{"/database/" + tableName + "/list"}
+@C_URL_SAVE   = @{"/database/" + tableName + "/save"}
+@C_URL_DELETE = @{"/database/" + tableName + "/delete"}
+@C_URL_DETAIL = @{"/database/" + tableName + "/detail"}
+
+@C_DISPLAY_COL1= @{"col1"}
+@C_DISPLAY_COL2= @{"col2"}
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getTitle(name: String, url: String, icon: String) = {
+	<a href="@url" class="">
+		<img src="@routes.Assets.versioned(icon)" width=@CommonConstraint.C_SIZE_ICON_SM height=@CommonConstraint.C_SIZE_ICON_SM>&nbsp;@name
+	</a>
+}
+
+@display(itemType: String, value: String) = {
+	@itemType match {
+		case "image"	=> {<img src="@value" width=16 height=16 />@value}
+		case "url"	 	=> {<a href="@value" target="new">@value</a>}
+		case _			=> {@value}
+	}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main(title, null) {
+
+<link rel="stylesheet" href="@routes.Assets.versioned("/sfusion/css/bootstrap-datepicker.min.css")" rel="stylesheet">
+<script src="@routes.Assets.versioned("/sfusion/js/bootstrap-datepicker.min.js")"></script>
+<script src="@routes.Assets.versioned("/sfusion/js/bootstrap-datepicker-ja.js")"></script>
+
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header navbar-brand">
+				@getTitle(title + " [" + Session.get("session.displayName") + "]", C_URL_INDEX, TableDataConstraint.C_ICON)
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<li>
+					<a class="btn btn-default btn-sm" href="@C_URL_LIST/@Session.get(CommonConstraint.C_SESSION_PAGE)">@Messages.get("common.button.list")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" href="javascript:document.forms['editForm'].submit();">@Messages.get("common.button.save")</a>
+				</li>
+				<li>
+					<a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-msgbox">@Messages.get("common.button.delete")</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+    </script>
+	<div class="row">
+	<form class="form-horizontal" name="editForm" role="form" action="@C_URL_SAVE" method="POST">
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<table class="table table-bordered table-condensed">
+					@for(item <- result) {
+						@if(item.displayType == C_DISPLAY_COL1) {
+							<tr>
+								<th class="col-md-3 active">
+									<label class="control-label" for="inputSmall">@item.name</label>
+								</th>
+								<td class="col-md-9">
+									@includeItem(item.id, item.name, form)
+								</td>
+							</tr>
+						}
+					}
+				</table>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<table class="table table-bordered table-condensed">
+					@for(item <- result) {
+						@if(item.displayType == C_DISPLAY_COL2) {
+							<tr>
+								<th class="col-md-3 active">
+									<label class="control-label" for="inputSmall">@item.name</label>
+								</th>
+								<td class="col-md-9">
+									@includeItem(item.id, item.name, form)
+								</td>
+							</tr>
+						}
+					}
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="bs-component">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#home" data-toggle="tab">タブ1</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active in" id="home">
+				<div class="col-lg-6">
+					<div class="bs-component">
+						<table class="table table-bordered table-condensed">
+							@for(item <- result) {
+								@if(item.displayType == "tab1") {
+									<tr>
+										<th class="col-md-3 active">
+											<label class="control-label" for="inputSmall">@item.name</label>
+										</th>
+										<td class="col-md-9">
+											@includeItem(item.id, item.name, form)
+										</td>
+									</tr>
+								}
+							}
+						</table>
+					</div>
+				</div>
+				<div class="col-lg-6">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</form>
+</div>
+
+<form name="deleteForm" action="@C_URL_DELETE/@Session.get("session.id")" method="post">
+</form>
+
+@*****************************
+* ダイアログ定義             *
+*****************************@
+@incDialog("modal-msgbox",
+	Messages.get("common.dialog.title"),
+	Messages.get("common.dialog.delete"),
+	"document.forms['deleteForm'].submit();"
+);
+}

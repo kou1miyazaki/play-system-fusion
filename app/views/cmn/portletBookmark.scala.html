@@ -1,0 +1,60 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import models.adm.BookmarkModel;
+@import utils.cmn.Session
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@portletId = @{"bookmark"}
+@result = @{ BookmarkModel.getList(parameter.get("bookmarkType")) }
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@active(activeFlg: Boolean) = {
+	@if(activeFlg) {in}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-primary">
+	@if(title!=""){
+		<div class="panel-heading">
+			<a class="bg-primary" data-toggle="collapse" data-parent="#accordion" href="#@portletId" class="collapsed">
+				@title
+			</a>
+		</div>
+	}
+	<div id="@portletId" class="panel-collapse collapse @active(activeFlg)">
+		<div class="panel-body">
+			<ul class="nav nav-pills">
+				@for(bookmark <- result) {
+					@if(BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType).size() == 0) {
+						<li>
+							<a href="@bookmark.url" target="NEW">
+							<img src="@bookmark.imageIcon" width=32 height=32 />@bookmark.name
+							</a>
+						</li>
+					}  else {
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								<img src="@bookmark.imageIcon" width=32 height=32 />@bookmark.name<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+							@for(children <- BookmarkModel.getListChildren(bookmark.id, bookmark.bookmarkType)) {
+								<li>
+									<a href="@children.url" target="NEW">
+									<img src="@children.imageIcon" width=32 height=32 />@children.name
+									</a>
+								</li>
+							}
+							</ul>
+						</li>
+					}
+				}
+			</ul>
+		</div>
+	</div>
+</div>

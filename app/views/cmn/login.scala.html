@@ -1,0 +1,114 @@
+@(message: String, form: Form[forms.cmn.LoginForm])
+
+@import views.html.cmn.incFooter;
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getField(inputType: String, field: Field, label: String) = {
+	<div class="form-group">
+		<tr>
+			<th class="col-md-3 active">
+				<label class="control-label" for="inputSmall">@label</label>
+			</th>
+			<td class="col-md-9">
+				@inputType match {
+					case "password" => {
+						<input placeholder="@label" id="@field.id" name="@field.name" value="@field.value" class="form-control input-sm" type="password" >
+					}
+					case "text" => {
+						<input placeholder="@label" id="@field.id" name="@field.name" value="@field.value" class="form-control input-sm" type="text" >
+					}
+					case _ => {
+						NotFound.
+					}
+				}
+				@if(field.hasErrors) {
+	           		<span class="help-block">@field.errors.mkString(", ")</span>
+	           	}
+			</td>
+		</tr>
+	</div>
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>SystemFusion-ログイン</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="@routes.Assets.versioned("/sfusion/css/bootstrap.css")" media="screen">
+	<link rel="stylesheet" href="@routes.Assets.versioned("/sfusion/css/custom.min.css")">
+	<link rel="icon" href="@routes.Assets.versioned("/favicon.png")" sizes="32x32" />
+	<link rel="icon" href="@routes.Assets.versioned("/favicon.png")" sizes="192x192" />
+</head>
+
+<body>
+
+	<div class="container">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand">SystemFusion</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+			</div>
+			<div class="col-lg-6">
+				<div class="bs-component">
+					<div class="modal">
+						<div class="modal-dialog">
+							<div class="modal-content col-md-10">
+								<div class="modal-header">
+									<h4 class="modal-title">ログイン</h4>
+								</div>
+								<form action="/auth" method="POST">
+								<div class="modal-body">
+									<label class="control-label" for="inputDefault">お客様コード</label>
+									<input class="form-control input-sm" id=""customer"" type="text" name="customer">
+									<label class="control-label" for="inputDefault">アカウントID</label>
+									<input class="form-control input-sm" id="accountId" type="text" name="accountId">
+									<label class="control-label" for="inputDefault">パスワード</label>
+									<input class="form-control input-sm" id="password" type="password" name="password">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+									<button type="submit" class="btn btn-primary">ログイン</button>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+			</div>
+
+		</div>
+	</div>
+
+	<br>
+
+	<!-- フッター -->
+	<div class="container">
+		@incFooter()
+	</div>
+
+	<script src="@routes.Assets.versioned("sfusion/js/jquery-1.10.2.min.js")"></script>
+	<script src="@routes.Assets.versioned("sfusion/js/bootstrap.min.js")"></script>
+	<script src="@routes.Assets.versioned("sfusion/js/custom.js")"></script>
+	<script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
+
+</body>
+</html>

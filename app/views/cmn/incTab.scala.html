@@ -1,0 +1,64 @@
+@(tab :String, value :String)
+
+@import play.i18n._
+@import utils.cmn.Session
+@import models.adm.MenuModel
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@result = @{ MenuModel.getList(tab) }
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@*****************************
+* 関数定義                   *
+*****************************@
+@*****************************
+* 関数定義                   *
+*****************************@
+@retSelect(url: String) = {
+	@if(url.equals(value)) {active} else {}
+}
+
+@display(actionType: String, url: String, imageIcon: String, name: String) = {
+	@actionType match {
+		case "url"		=> {<li class="@retSelect(url)"><a href="@url"><img src="@imageIcon" width=16 height=16 />&nbsp@name</a></li>}
+		case "iframe"	=> {<li class="@retSelect(url)"><a href="/urltab?url=@url&tabType=@tab"><img src="@imageIcon" width=16 height=16 />&nbsp@name</a></li>}
+		case "div"	 	=> {<li class="divider"></li>}
+		case _			=> {}
+	}
+}
+@*****************************
+* 本体定義                   *
+*****************************@
+@if(result.size() != 0) {
+<div class="container">
+	<h5></h5>
+	<div class="bs-component">
+		<ul class="nav nav-tabs">
+			@for(menu <- result) {
+				@if(MenuModel.getListChildren(menu.id, menu.menuType).size() == 0) {
+					@display(menu.actionType,menu.url,menu.imageIcon,menu.name)
+				}  else {
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<img src="@menu.imageIcon" width=16 height=16 />@menu.name<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						@for(children <- MenuModel.getListChildren(menu.id, menu.menuType)) {
+							@display(children.actionType,children.url,children.imageIcon,children.name)
+						}
+						</ul>
+					</li>
+				}
+			}
+		</ul>
+	</div>
+</div>
+}

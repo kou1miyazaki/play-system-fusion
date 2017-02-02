@@ -1,0 +1,29 @@
+@(id: Integer, portletName : String, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import play.i18n._
+@import views.html.cmn._
+
+@*****************************
+* 変数定義                   *
+*****************************@
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@portletName match {
+	case "IFrame"		 	=> {@portletIFrame(id, title, parameter, activeFlg)}
+	case "RSSFeed"		 	=> {@portletRSSFeed(id, title, parameter, activeFlg)}
+	case "Bookmark"		 	=> {@portletBookmark(id, title, parameter, activeFlg)}
+	case "Carousel"		 	=> {@portletCarousel(id, title, parameter, activeFlg)}
+	case "GoogleSearch"		=> {@portletGoogleSearch(id, title, parameter, activeFlg)}
+	case "GoogleTranslate"	=> {@portletGoogleTranslate(id, title, parameter, activeFlg)}
+	case "EmbedContent"		=> {@portletEmbedContent(id, title, parameter, activeFlg)}
+	case "Twitter"			=> {@portletTwitter(id, title, parameter, activeFlg)}
+	case "Facebook"			=> {@portletFacebook(id, title, parameter, activeFlg)}
+	case "NewsWeather"		=> {@portletNewsWeather(id, title, parameter, activeFlg)}
+	case "BijinClock"		=> {@portletBijinClock(id, title, parameter, activeFlg)}
+	case "Alart"		 	=> {@portletAlart(id, title, parameter, activeFlg)}
+	case "LinkSocial"	 	=> {@portletLinkSocial(title)}
+	case "LinkTools"	 	=> {@portletLinkTools(title)}
+	case _					=> {}
+}

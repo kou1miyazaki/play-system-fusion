@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+@media only screen
+	and (max-width: 480px) and (orientation:portrait)	{
+html, body		{word-break:break-all;-webkit-text-size-adjust: none!important;}
+
+/* ----------------------------------------------------------
+Entry
+---------------------------------------------------------- */
+.entry .entry-body div.thumb		{display:none; float:none}
+.entry .entry-body p				{float:none!important;text-align:left;width:auto!important;}
+}
+
+
+@media only screen
+	and (min-device-width:768px) 
+	and (max-device-width:1024px) 
+	and (orientation:landscape) {
+html, body		{word-break:break-all;-webkit-text-size-adjust: none!important;}
+
+/* ----------------------------------------------------------
+Base Layout
+---------------------------------------------------------- */
+#wrap			{width:100%}
+header			{width:100%}
+#container		{padding:2% 3%;text-align:center;position:relative;}
+#main			{width:100%; margin:0 auto}
+/*#sidebar1		{display:none}*/
+#article-wrap	{float:left;/*width:660px;*/width:700px;}   
+aside			{width:100%;}  
+footer			{width:100%}  
+.footer-inner	{width:92%; padding:3%}  
+
+.entry .entry-body p				{float:right;text-align:left;max-width:480px;}
+
+}
+
+@media only screen
+	and (max-width: 768px)	{
+html, body		{word-break:break-all;-webkit-text-size-adjust: none!important;}
+
+/* ----------------------------------------------------------
+Base Layout
+---------------------------------------------------------- */
+#wrap			{width:100%}
+header			{width:100%}
+#container		{padding:2% 3%;text-align:center;position:relative;}
+#main			{width:100%; margin:0 auto}
+#article-wrap	{float:none;width:100%;padding:0 0 20px}   
+/*#sidebar1		{width:100%;float :none; margin:0}*/
+#sidebar2		{width:100%;float :none; margin:0}
+aside			{width:100%;}  
+footer			{width:100%}  
+.footer-inner	{width:92%; padding:3%}  
+
+/* ----------------------------------------------------------
+Header
+---------------------------------------------------------- */
+/*hader*/
+header .topbar				{}
+header .topbar-inner		{width:100%; margin:0 auto;}
+header .topbar a			{}
+header .topbar h1			{float:none!important; text-align:center; margin:0 auto;}
+header .topbar h1 img		{max-width:100%; width:auto; text-align:center}
+header .topbar p.caption	{}
+header .topbar div.media	{float:none}
+
+/*header-inner*/
+.header-inner			{width:auto; display:none;}
+.header-body			{width:auto;}
+
+/* ----------------------------------------------------------
+Article
+---------------------------------------------------------- */
+/*sidesocialbar*/
+.sidesocialbar			{position:relative!important; right:0; margin:0 auto ;width:100%;z-index:100000; top:0}
+.sidesocialbar-box				{text-align:center; margin:-2px 0 5px;}
+.sidesocialbar-box ul			{list-style:none;display:table; table-layout:fixed;width:100%;}
+.sidesocialbar-box ul li		{display:table-cell}
+.sidesocialbar-box ul li img	{width:30px; height:auto; text-align:center; }
+.sidesocialbar-box ul li a			{display:block;padding:5px 0}
+.sidesocialbar-box ul li a:hover	{background:#dd0000}
+
+/* ----------------------------------------------------------
+Entry
+---------------------------------------------------------- */
+.entry .title-box					{margin:10px}
+.entry .title-box .breadcrumb		{padding:0 0 5px 10px;}
+.entry .title-box h2				{padding:0 0 5px 10px;}
+.entry .entry-metadata				{margin:-10px 10px 10px; padding:5px;}
+.entry .entry-body 					{padding:10px}
+.entry .entry-body div.thumb		{float:left;width:120px;}
+.entry .entry-body p				{float:right;text-align:left;max-width:auto; width:75%;}
+.entry .entry-body div.thumb img	{width:100px; height:auto; padding:2px; border:1px solid #ccc;}
+.entry .entry-body p.edit			{float:none; clear:both; width:100%; margin-top:20px}
+
+/*entry-ad*/
+.entry-ad .images-left,
+.entry-ad .images-right			{float:none; display:block; text-align:center; margin:2px auto}
+.entry-ad .images-responsive		{float:none; margin:0 auto; text-align:center}
+.entry-ad .images-responsive img	{ max-width:100%;width:100%; height:auto}
+
+/* ----------------------------------------------------------
+Single
+---------------------------------------------------------- */
+#single .entry-body h3,
+#single .entry-body h4				{padding:2px 0 2px 5px;}
+
+/*yarpp-related*/
+.yarpp-related .title-box			{margin:20px 20px 0 10px}
+.yarpp-related .title-box p.title	{padding:2px 0 2px 5px;}
+
+#single .yarpp-related ul.related-list			{display:block;}
+#single .yarpp-related ul.related-list a		{text-decoration:underline!important;}
+#single .yarpp-related ul.related-list li		{display:block;padding:0; margin-bottom:5px; border:none; border-bottom:1px dotted #ccc;text-align:left; width:auto;min-height:1px!important}
+#single .yarpp-related ul.related-list li img		{display:none}
+#single .yarpp-related ul.related-list li .title	{font-size:100%; line-height:normal}
+
+/*entry-related*/
+#single .related .title-box,
+#single .yarpp-related .title-box			{margin:20px 20px 0 10px}
+#single .related .title-box p.title,
+#single .yarpp-related .title-box p.title	{padding:2px 0 2px 5px;}
+
+/*comment*/
+#single .comment .title-box			{margin:20px 20px 0 10px}
+#single .comment .title-box p.title	{padding:2px 0 2px 5px;}
+
+
+/* ----------------------------------------------------------
+Sidebar
+---------------------------------------------------------- */
+/*sidebar*/
+.box.sidebar					{margin-bottom:10px;padding:0}
+
+/*sidebar.entry*/
+.sidebar.entry .title-box		{margin:0}
+.sidebar.entry dl.entry-list dt		{float:left;vertical-align:top;width:75px}
+.sidebar.entry dl.entry-list dd		{float:left;vertical-align:top;min-width:66%}
+
+/*sidebar1*/
+.sidebar.special,
+.sidebar.ad-sidebar1	{display:none!important}
+
+/*sidebar.search*/
+.sidebar.search			{display:block!important}
+
+/*sidebar.category*/
+.sidebar.category		{display:block!important}
+.sidebar.category ul.category-list li a	div.menu	{
+color:#222;
+border-left:none;
+border-right:none;
+border-top:1px solid #c0c0c0;
+border-bottom:1px solid #c0c0c0;
+padding:7px 15px;
+font-size:100%;
+}
+
+/*adv*/
+.sidebar.adv img		{max-width:100%; width:100%; height:auto}
+.sidebar.ad-sidebar2	{display:none!important}
+.size160_600			{display:none!important}
+
+/*tweet*/
+.sidebar.tweet			{display:none!important}
+
+}
+
+
+@media only screen
+	and (min-device-width:768px) 
+	and (max-device-width:1024px) 
+	and (orientation:portrait){
+html, body		{word-break:break-all;-webkit-text-size-adjust: none!important;}
+
+/* ----------------------------------------------------------
+Entry
+---------------------------------------------------------- */
+.entry .entry-body div.thumb		{float:left;width:140px;}
+.entry .entry-body p				{float:left;text-align:left;max-width:79.5%; width:auto;}
+.entry .entry-body div.thumb img	{width:120px; height:auto; }
+}
+

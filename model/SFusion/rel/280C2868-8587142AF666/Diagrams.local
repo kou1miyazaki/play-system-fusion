@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="sub_view" objectID="211011F1-16B5-8C61-00BE-DA1572C97439" name="From_LM_CMS-コンテンツ管理" visible="false"/>
+   <object objectType="sub_view" objectID="35E4EB0D-2BE1-D927-6C52-34CC16A82E8E" name="From_LM_SEC-セキュリティ管理" visible="false"/>
+   <object objectType="sub_view" objectID="368C0781-01C6-D8E1-BFAF-669610D326CE" name="From_LM_CMN-共通" visible="false"/>
+   <object objectType="sub_view" objectID="3ADC60D9-94DF-3BE9-DDA4-EB208E98B0ED" name="From_LM_DBX-汎用データベース" visible="false"/>
+   <object objectType="sub_view" objectID="4C87F002-63B9-B3FD-853B-DBAD92A6F256" name="From_LM_CRM-顧客管理" visible="false"/>
+   <object objectType="main_view" objectID="5BFB6599-757F-A0F8-6492-B206240D03A1" name="FUSIONDB" visible="false"/>
+   <object objectType="sub_view" objectID="812A7803-4E6E-3246-291C-77E732A874D6" name="From_LM_PRJ-プロジェクト管理" visible="false"/>
+   <object objectType="sub_view" objectID="BFEC8600-7C06-138A-CD0E-7C2AFBAD6F58" name="From_LM_SYS-システム管理" visible="false"/>
+   <object objectType="sub_view" objectID="FE8D339A-7282-E708-489E-33C0F0B86A0D" name="From_LM_SUP-サポート管理" visible="false"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

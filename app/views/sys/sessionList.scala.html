@@ -1,0 +1,68 @@
+@(title: String, result: List[models.cmn.SessionModel], session: String)
+
+@import java.util.Date
+@import play.i18n._
+@import utils.cmn.Session
+@import consts.cmn.CommonConstraint
+
+@*****************************
+* 定数定義                   *
+*****************************@
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@getTitle(name: String, url: String, icon: String) = {
+	<a href="@url" class="">
+		<img src="@routes.Assets.versioned(icon)" width=32 height=32>&nbsp;@name
+	</a>
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+@main(title, null) {
+<div class="container">
+	<div class="row">
+		<div class="bs-component">
+			<div class="navbar-header navbar-brand">
+				@getTitle(title, "/session", "/images/icon/admin.png")
+			</div>
+		</div>
+	</div>
+	<h5></h5>
+	<div class="bs-component">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#" data-toggle="tab">Session一覧</a></li>
+			<li><a href="#" data-toggle="tab">Cookie一覧</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			@if(result != null) {
+			<table class="table table-striped table-hover table-bordered table-condensed">
+				<thead>
+				<tr class="@CommonConstraint.C_THEMA_CLASS">
+					<th>名称</th>
+					<th>値</th>
+				</tr>
+				</thead>
+				<tbody>
+				@for(model <- result) {
+					<tr>
+						<td>@model.name</td>
+						<td>@model.value</td>
+					</tr>
+				}
+				</tbody>
+			</table>
+			@session
+			} else {
+			<div class="alert alert-warning">
+				<span>@Messages.get("common.nodatafound")</span>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+}

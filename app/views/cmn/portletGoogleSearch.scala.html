@@ -1,0 +1,150 @@
+@(id :Integer, title :String, parameter: java.util.HashMap[String, String], activeFlg: Boolean)
+
+@import play.i18n._
+
+@*****************************
+* 変数定義                   *
+*****************************@
+@portletId = @{"googleSearch"}
+
+@*****************************
+* 関数定義                   *
+*****************************@
+@active(activeFlg: Boolean) = {
+	@if(activeFlg) {in}
+}
+
+@*****************************
+* 本体定義                   *
+*****************************@
+<div class="panel panel-primary">
+	@if(title!=""){
+		<div class="panel-heading">
+			<a class="bg-primary" data-toggle="collapse" data-parent="#accordion" href="#@portletId" class="collapsed">
+				@title
+			</a>
+		</div>
+	}
+	<div id="@portletId" class="panel-collapse collapse @active(activeFlg)">
+		<div class="panel-body">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#home" data-toggle="tab">検索</a></li>
+				<li><a href="#news" data-toggle="tab">ニュース</a></li>
+				<li><a href="#picture" data-toggle="tab">画像</a></li>
+				<li><a href="#video" data-toggle="tab">動画</a></li>
+				<li><a href="#book" data-toggle="tab">書籍</a></li>
+				<li><a href="#slideshare" data-toggle="tab">SlideShare</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade active in" id="home">
+					<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="searchForm" action="/search">
+								<input type="hidden" name="googleType" value="search">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['searchForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+								<div class="checkbox">
+		                        	<label>
+		                          		<input type="checkbox" name="pdf" value="pdf">PDF Only
+		                        	</label>
+		                      	</div>
+								<div class="checkbox">
+		                        	<label>
+		                          		<input type="checkbox" name="ja" value="ja">Japanese Only
+		                        	</label>
+		                      	</div>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div class="tab-pane fade" id="news">
+					<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="newsForm" action="/search">
+								<input type="hidden" name="googleType" value="news">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['newsForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div class="tab-pane fade" id="picture">
+					<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="pictureForm" action="/search">
+								<input type="hidden" name="googleType" value="picture">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['pictureForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+								<div class="form-group">
+								<label for="select" class="control-label">種類</label>
+								<select class="form-control input-sm" id="select">
+									<option>すべての種類</option>
+									<option>顔</option>
+									<option>写真</option>
+								</select>
+								</div>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div class="tab-pane fade" id="video">
+					<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="videoForm" action="/search">
+								<input type="hidden" name="googleType" value="video">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['videoForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div class="tab-pane fade" id="book">
+					<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="bookForm" action="/search">
+								<input type="hidden" name="googleType" value="book">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['bookForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div class="tab-pane fade" id="slideshare">
+	  				<ul class="nav navbar-nav">
+						<li>
+							<form class="navbar-form navbar-left" role="search" target="NEW" name="slideshareForm" action="/search">
+								<input type="hidden" name="googleType" value="slideshare">
+								<div class="form-group">
+									<input type="text" name="q" class="form-control input-sm" placeholder="Search" size="35">
+								</div>
+								<a href="javascript:document.forms['slideshareForm'].submit();">
+									<img src="@routes.Assets.versioned("/images/icon/search.png")" width=32 height=32 />
+								</a>
+							</form>
+	  					</li>
+	  				</ul>
+	  			</div>
+			</div>
+		</div>
+	</div>
+</div>

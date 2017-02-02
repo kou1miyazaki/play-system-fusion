@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="SFusion" id="C5AAA1AC-1695-352A-989C-DECDE2C850B0" version="3.5">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-11 12:18:00 UTC</createdTime>
+<ownerDesignName>SystemFusionERD</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C5AAA1AC-1695-352A-989C-DECDE2C850B0</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="89BB6BE7-BBDD-3A9D-BD3E-5CD243768DCF">
+<designStoragePath>C:\Users\こう\Desktop</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

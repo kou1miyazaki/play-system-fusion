@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F789A39-AC96-BE58-F938-AD9FD5442ACB" name="CMN_TT_USER_INFO">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>28FD78C8-F790-6D10-596C-2AEA297D1780</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_CD" id="D4DE3A1D-DD38-B490-51C3-9C242388656D">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>2E632A2E-9728-C9C2-2423-A5E8998EE0CE</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<domain>177D932B-96BA-6429-DD60-4FB2E6BDEFD9</domain>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_NAME" id="FC5F8B0B-6278-6821-439A-7F5BD895E0F3">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>47129F80-9E5F-5465-6955-30E40963AE4E</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<domain>FF54AFE0-5E5B-D0F9-8AFA-8F7FE0EB35FF</domain>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="30245C93-F5C8-DDFD-3641-BE6B87741408">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>E2DFB79B-C701-2906-B3AC-1D7C71F2A841</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<domain>FF54AFE0-5E5B-D0F9-8AFA-8F7FE0EB35FF</domain>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERSON_CD" id="E0FB2658-4AA2-2F18-2085-370ABAA2377B">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>851B26AB-01F2-972D-964D-F61BCEC4E794</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCOUNT_ID" id="5A7F452B-C2F6-21BB-E414-49520E2E81A1">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>0649667F-01BA-D94E-055B-5927DFA51C86</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CMN_TT_PERSON_EMP_CD" id="17EBDCE5-D261-3178-D7F3-54A8E352F44C">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>D78B95BE-0D2C-0B92-B795-B46FB10DA828</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F6189F0C-39AF-3720-215E-9FD91355C4C4" referredColumn="2DFAC5FB-16DA-6CD7-D790-F7CAC2485344"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D028D0FA-83CE-C5AB-026B-E6F2E9BCC2E9" name="CMN_TT_USER_INFO_PK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 02:12:32 UTC</createdTime>
+<generatorID>75B83473-CE65-D87C-12DD-5216301C63F0</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4DE3A1D-DD38-B490-51C3-9C242388656D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2FA10FBE-55F7-8D11-E9AD-EC624FA2DE07" name="CMN_TT_USER_INFO__IDX">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>5D502E37-1052-B398-739C-0B274766F696</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="17EBDCE5-D261-3178-D7F3-54A8E352F44C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91653A86-35EB-C6D2-94FC-D6C5E838B07A" name="CMN_TT_USER_INFO_CMN_TT_PERSON_FK">
+<createdBy>kou1miyazaki</createdBy>
+<createdTime>2016-11-12 03:25:45 UTC</createdTime>
+<generatorID>5D502E37-1052-B398-739C-0B274766F696</generatorID>
+<ownerDesignName>SFusion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17EBDCE5-D261-3178-D7F3-54A8E352F44C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
